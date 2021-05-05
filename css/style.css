@@ -1,0 +1,166 @@
+
+/* Navbar styling*/
+
+.nav_bar{
+	overflow: auto;
+	background-color: orange;
+}
+
+.logo{
+	float: left;
+	background-color: white;
+	width: 150px;
+	height: 150px;
+	margin-left: 50px;
+}
+.cart{
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-right: 20px;
+	margin-top: 5px;
+}
+
+.nav_bar_cart{
+	margin-top: 30px;
+	float: right;
+	margin-right: 20px;
+}
+
+.search_bar{
+	margin-left: 20%;
+	margin-right: auto;
+	margin-top: 50px;
+	float: left;
+}
+
+.search_bar input{
+	height: 40px;
+	width: 500px;
+	text-align: left;
+	padding-left: 20px;
+	font-size: 20px;
+}
+
+/* Categories bar */
+
+.categories_bar li{
+	display: inline;
+	padding-right: 20px;
+}
+
+.categories_bar a:hover{
+	text-decoration: underline;
+}
+
+.categories_bar a{
+	color: black;
+	text-decoration: none;
+}
+
+.categories_bar li:after{
+	content: '|';
+	padding-left: 15px;
+	padding-right: 0px;
+}
+
+.categories_bar li:last-child:after{
+	content: none;
+}
+
+.categories_bar{
+	box-shadow: 0px 1px grey;
+	text-align: center;
+	font-weight: bold;
+	margin: auto;
+  	background-color: #d9dada;
+  	overflow: auto;
+}
+
+/* Main body index */
+
+.recommended_items{
+	overflow: auto;
+}
+
+.main_body .main_img{
+	margin-top: 20px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	width: 60%;
+}
+
+.recommended_item img{
+	width: 200px;
+	height: 200px;
+}
+
+.recommended_items ul{
+	display: inline;
+	list-style: none;
+}
+.recommended_items .recommended_item{
+	float: left;
+	margin-right: 50px;
+	margin-left: 50px;
+}
+
+.recommended_item .add_to_cart{
+	width: 60px;
+	height: 60px;
+}
+
+/* Rating */
+.stars-outer {
+  position: relative;
+  display: inline-block;
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.stars-outer::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #ccc;
+}
+
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #f8ce0b;
+}
+
+/* Footer */
+
+.footer{
+	border-top: solid 1px;
+	height: auto;
+	background-color: orange;
+	overflow: auto;
+}
+
+.cookies_info{
+	font-size: 12px;
+	float: right;	/* nie wiem jakim chujem to dziala ale to sprawia ze info jest pod kontaktem */
+	margin-left: 15px;
+}
+
+.contact{
+	font-size: 14px;
+}
+
+.contact_element{
+	float: left;
+	margin-right: 30px;
+	margin-left: 15px;
+}
