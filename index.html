@@ -11,13 +11,13 @@
 </head>
 <body>
 	<div class="nav_bar">
-		<img src="img/logo_small.png" class="logo">
+		<a href="index.html"><img src="img/logo_small.png" class="logo"></a>
 		<form class="search_bar">
 			<input type="text" id="fsearch" name="fsearch" placeholder="Wpisz szukany przedmiot...">
 		</form>
 		<div class="nav_bar_cart">
-			<img src="img/cart.png" class="cart">
-			<p class="item_number"><a href="koszyk.html">Ilość przedmiotów w koszyku: </a> </p>
+			<a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
+			<p class="item_number">Ilość przedmiotów w koszyku: </p>
 		</div>
 	</div>
 	<div class="categories_bar">
@@ -51,14 +51,24 @@
 		<script>
 			$(document).ready(function() {
 				$.ajax({
-					url: "localhost:8080/przedmiot/polecane"
+					url: "https://mirbud-restapi.herokuapp.com/przedmiot/polecane"
 				}).then(function(data){
-					var polecanePrzedmioty = JSON.parse(data);
 					var i;
-					for (i = 0; i < 6; step++){
+					for (i = 0; i < 6; i++){
 						var searchedClassName = ".item" + i + " h4.item_name";
-						$(searchedClassName).append(polecanePrzedmioty[i].nazwa);
-						$(searchedClassName).append(polecanePrzedmioty[i].cena);
+						$(searchedClassName).append(data[i].nazwa);
+					}
+					for (i = 0; i < 6; i++){
+						var searchedClassName = ".item" + i + " h4.item_price";
+						$(searchedClassName).append(data[i].cenaSprzedazy + "zł");
+					}
+					for (i = 0; i < 6; i++){
+						var searchedClassName = ".item" + i + " img.item_photo";
+						$(searchedClassName).attr("src", data[i].zdjecia);
+					}
+					var ratings = getAllRatings();
+					for (i = 0; i < 6; i++){
+						ratings[i] = data[i].ocena;
 					}
 				});
 			});
@@ -67,9 +77,9 @@
 			<ul>
 				<li>
 					<div class="recommended_item item0">
-						<img src="img/cegla1.jpg">
-						<h4 class="item_name">{Nazwa przedmiotu}</h4>
-						<h4 class="item_price">{Cena przedmiotu}</h4>
+						<img src="img/cegla1.jpg" class="item_photo">
+						<h4 class="item_name"></h4>
+						<h4 class="item_price"></h4>
 						<div class="stars-outer">
             				<div class="stars-inner"></div>
           				</div>
@@ -79,9 +89,9 @@
 				</li>
 				<li>
 					<div class="recommended_item item1">
-						<img src="img/cegla2.jpg">
-						<h4 class="item_name">{Nazwa przedmiotu}</h4>
-						<h4 class="item_price">{Cena przedmiotu}</h4>
+						<img src="img/cegla2.jpg" class="item_photo">
+						<h4 class="item_name"></h4>
+						<h4 class="item_price"></h4>
 						<div class="stars-outer">
             				<div class="stars-inner"></div>
           				</div>
@@ -91,9 +101,9 @@
 				</li>
 				<li>
 					<div class="recommended_item item2">
-						<img src="img/cegla3.jpg">
-						<h4 class="item_name">{Nazwa przedmiotu}</h4>
-						<h4 class="item_price">{Cena przedmiotu}</h4>
+						<img src="img/cegla3.jpg" class="item_photo">
+						<h4 class="item_name"></h4>
+						<h4 class="item_price"></h4>
 						<div class="stars-outer">
             				<div class="stars-inner"></div>
           				</div>
@@ -101,9 +111,9 @@
 						<img src="img/add_to_cart.png" class="add_to_cart">
 					</div>
 					<div class="recommended_item item3">
-						<img src="img/cegla1.jpg">
-						<h4 class="item_name">{Nazwa przedmiotu}</h4>
-						<h4 class="item_price">{Cena przedmiotu}</h4>
+						<img src="img/cegla1.jpg" class="item_photo">
+						<h4 class="item_name"></h4>
+						<h4 class="item_price"></h4>
 						<div class="stars-outer">
             				<div class="stars-inner"></div>
           				</div>
@@ -111,9 +121,9 @@
 						<img src="img/add_to_cart.png" class="add_to_cart">
 					</div>
 					<div class="recommended_item item4">
-						<img src="img/cegla2.jpg">
-						<h4 class="item_name">{Nazwa przedmiotu}</h4>
-						<h4 class="item_price">{Cena przedmiotu}</h4>
+						<img src="img/cegla2.jpg" class="item_photo">
+						<h4 class="item_name"></h4>
+						<h4 class="item_price"></h4>
 						<div class="stars-outer">
             				<div class="stars-inner"></div>
           				</div>
@@ -121,9 +131,9 @@
 						<img src="img/add_to_cart.png" class="add_to_cart">
 					</div>
 					<div class="recommended_item item5">
-						<img src="img/cegla3.jpg">
-						<h4 class="item_name">{Nazwa przedmiotu}</h4>
-						<h4 class="item_price">{Cena przedmiotu}</h4>
+						<img src="img/cegla3.jpg" class="item_photo">
+						<h4 class="item_name"></h4>
+						<h4 class="item_price"></h4>
 						<div class="stars-outer">
             				<div class="stars-inner"></div>
           				</div>
