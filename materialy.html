@@ -9,37 +9,48 @@
   </head>
   <body>
     <div class="nav_bar">
-   <a href="index.html"> <img src="img/logo_small.png" class="logo"></a>
+    <a href="index.html"><img src="img/logo_small.png" class="logo"></a>
     <form class="search_bar">
       <input type="text" id="fsearch" name="fsearch" placeholder="Wpisz szukany przedmiot...">
     </form>
-    <div class="nav_bar_cart">
-      <a href="koszyk.html"><img src="img/cart.png" class="cart"></a>
-      <p class="item_number">Ilość przedmiotów w koszyku:  </p>
+
+    <div class="nav_bar_cart_and_user">
+      <div class="user">
+        <h4>Witaj gościu!</h4>
+      </div>
+      <div class="cart_all">
+        <a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
+        <p class="item_number">Ilość przedmiotów w koszyku: </p>
+      </div>
+      <a href="logowanie.html">
+        <button class="login_btn" type="button">
+          Zaloguj/Zarejestruj się
+        </button>
+      </a>
     </div>
   </div>
   <div class="categories_bar">
     <ul>
       <li>
-        <a href="">Budowanie</a>
+        <a href="item_list.html?category=bud">Budowanie</a>
       </li>
       <li>
-        <a href="">Ogród i wypoczynek</a>
+        <a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
       </li>
       <li>
-        <a href="">Technika</a>
+        <a href="item_list.html?category=tec">Technika</a>
       </li>
       <li>
-        <a href="">Mieszkanie</a>
+        <a href="item_list.html?category=mie">Mieszkanie</a>
       </li>
       <li>
-        <a href="">Kuchnia</a>
+        <a href="item_list.html?category=kuc">Kuchnia</a>
       </li>
       <li>
-        <a href="">Łazienka</a>
+        <a href="item_list.html?category=laz">Łazienka</a>
       </li>
       <li>
-        <a href="">Elektronika</a>
+        <a href="item_list.html?category=ele">Elektronika</a>
       </li>
     </ul>
   </div>

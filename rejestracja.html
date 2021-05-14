@@ -11,33 +11,44 @@
     <form class="search_bar">
       <input type="text" id="fsearch" name="fsearch" placeholder="Wpisz szukany przedmiot...">
     </form>
-    <div class="nav_bar_cart">
-      <a href="koszyk.html"><img src="img/cart.png" class="cart"></a>
-      <p class="item_number">Ilość przedmiotów w koszyku:  </p>
+
+    <div class="nav_bar_cart_and_user">
+      <div class="user">
+        <h4>Witaj gościu!</h4>
+      </div>
+      <div class="cart_all">
+        <a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
+        <p class="item_number">Ilość przedmiotów w koszyku: </p>
+      </div>
+      <a href="logowanie.html">
+        <button class="login_btn" type="button">
+          Zaloguj/Zarejestruj się
+        </button>
+      </a>
     </div>
   </div>
   <div class="categories_bar">
     <ul>
       <li>
-        <a href="">Budowanie</a>
+        <a href="item_list.html?category=bud">Budowanie</a>
       </li>
       <li>
-        <a href="">Ogród i wypoczynek</a>
+        <a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
       </li>
       <li>
-        <a href="">Technika</a>
+        <a href="item_list.html?category=tec">Technika</a>
       </li>
       <li>
-        <a href="">Mieszkanie</a>
+        <a href="item_list.html?category=mie">Mieszkanie</a>
       </li>
       <li>
-        <a href="">Kuchnia</a>
+        <a href="item_list.html?category=kuc">Kuchnia</a>
       </li>
       <li>
-        <a href="">Łazienka</a>
+        <a href="item_list.html?category=laz">Łazienka</a>
       </li>
       <li>
-        <a href="">Elektronika</a>
+        <a href="item_list.html?category=ele">Elektronika</a>
       </li>
     </ul>
   </div>
@@ -46,24 +57,34 @@
     <p>Wypełnij poniższe dany aby założyć konto.</p>
     <hr>
 
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Email" name="email" id="email" required>
+    <form action="adresendpointa">
+      <label for="email"><b>Email</b></label>
+      <input class="reg_log_input" type="text" placeholder="Email" name="email" id="email" required>
 
-    <label for="login"><b>Login</b></label>
-    <input type="text" placeholder="Login" name="login" id="login" required>
+      <label for="login"><b>Login</b></label>
+      <input class="reg_log_input" type="text" placeholder="Login" name="login" id="login" required>
 
-    <label for="psw"><b>Hasło</b></label>
-    <input type="password" placeholder="Hasło" name="psw" id="psw" required>
+      <label for="psw"><b>Hasło</b></label>
+      <input class="reg_log_input" type="password" placeholder="Hasło" name="psw" id="psw" required>
 
-    <label for="psw-repeat"><b>Powtórz hasło</b></label>
-    <input type="password" placeholder="Powtórz hasło" name="psw-repeat" id="psw-repeat" required>
-    <hr>
-    <p>Tworząc konto zgadzasz się z naszym <a class="links" href="regulamin.html">Regulaminem</a> i <a  class="links"href="politykaprywatnosci.html"> Polityką Prywatności</a>.</p>
-    <button type="submit" class="registerbtn">Zarejestruj się</button>
+      <label for="psw-repeat"><b>Powtórz hasło</b></label>
+      <input class="reg_log_input" type="password" placeholder="Powtórz hasło" name="psw-repeat" id="psw-repeat" required>
+      <hr>
+      <p>
+        Tworząc konto zgadzasz się z naszym 
+        <a class="links" href="regulamin.html">Regulaminem</a> 
+        i 
+        <a  class="links"href="politykaprywatnosci.html"> Polityką  Prywatności </a>
+        .
+      </p>
+      <input type="submit" value="Zarejestruj się" class="registerbtn">
+    </form>
   </div>
 
   <div class="container signin">
-    <p>Posiadasz już konto? <a class="links" href="logowanie.html">Zaloguj się</a>.</p>
+    <p>
+      Posiadasz już konto? <a class="links" href="logowanie.html">Zaloguj się</a>.
+    </p>
   </div>
   <div class="footer">
     <div class="contact">

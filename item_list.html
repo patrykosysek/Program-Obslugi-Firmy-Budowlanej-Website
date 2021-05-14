@@ -1,10 +1,17 @@
 <!doctype HTML>
 <head>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
-	<script type="text/javascript" src="js/rating.js"></script>
+	<meta charset="utf-8">
 	<title>Sklep Budowlany MirBud</title>
+	
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style_item_list.css">
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<script type="text/javascript" src="js/item_list.js"></script>
 </head>
 <body>
 	<div class="nav_bar">
@@ -12,35 +19,90 @@
 		<form class="search_bar">
 			<input type="text" id="fsearch" name="fsearch" placeholder="Wpisz szukany przedmiot...">
 		</form>
-		<div class="nav_bar_cart">
-			<a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
-			<p class="item_number">Ilość przedmiotów w koszyku: </p>
+
+		<div class="nav_bar_cart_and_user">
+			<div class="user">
+				<h4>Witaj gościu!</h4>
+			</div>
+			<div class="cart_all">
+				<a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
+				<p class="item_number">Ilość przedmiotów w koszyku: </p>
+			</div>
+			<a href="logowanie.html">
+				<button class="login_btn" type="button">
+					Zaloguj/Zarejestruj się
+				</button>
+			</a>
 		</div>
 	</div>
 	<div class="categories_bar">
 		<ul>
 			<li>
-				<a href="">Budowanie</a>
+				<a href="item_list.html?category=bud">Budowanie</a>
 			</li>
 			<li>
-				<a href="">Ogród i wypoczynek</a>
+				<a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
 			</li>
 			<li>
-				<a href="">Technika</a>
+				<a href="item_list.html?category=tec">Technika</a>
 			</li>
 			<li>
-				<a href="">Mieszkanie</a>
+				<a href="item_list.html?category=mie">Mieszkanie</a>
 			</li>
 			<li>
-				<a href="">Kuchnia</a>
+				<a href="item_list.html?category=kuc">Kuchnia</a>
 			</li>
 			<li>
-				<a href="">Łazienka</a>
+				<a href="item_list.html?category=laz">Łazienka</a>
 			</li>
 			<li>
-				<a href="">Elektronika</a>
+				<a href="item_list.html?category=ele">Elektronika</a>
 			</li>
 		</ul>
+	</div>
+	<div class="main_body">
+		<div class="filter_bar">
+			<form action="endpoint_filter">
+				<span class="category_filter_element">
+  					<input type="checkbox" id="bud" name="category1" value="bud">
+  					<label for="category1"> Budowanie</label><br>
+  				</span>
+				<span class="category_filter_element">
+  					<input type="checkbox" id="ogr" name="category2" value="ogr>
+  					<label for="category2"> Ogród i wypoczynek</label><br>
+  				</span>
+
+				<span class="category_filter_element">
+  					<input type="checkbox" id="tec" name="category3" value="tec">
+  					<label for="category3"> Technika</label><br>
+  				</span>
+
+				<span class="category_filter_element">
+  					<input type="checkbox" id="mie" name="category4" value="mie">
+  					<label for="category4"> Mieszkanie</label><br>
+  				</span>
+
+				<span class="category_filter_element">
+  					<input type="checkbox" id="kuc" name="category5" value="kuc">
+  					<label for="category5"> Kuchnia</label><br>
+  				</span>
+
+				<span class="category_filter_element">
+  					<input type="checkbox" id="laz" name="category6" value="laz">
+  					<label for="category6"> Łazienka</label><br>
+  				</span>
+
+				<span class="category_filter_element">
+					<input type="checkbox" id="ele" name="category7" value="ele">
+  					<label for="category7"> Elektronika</label><br><br>
+  				</span>
+  				<input class="filtr_btn" type="submit" value="Filtruj" name="filter_btn">
+			</form>
+		</div>
+		<div class="item_bar">
+			<ul class="item_list">
+			</ul>
+		</div>
 	</div>
 	<div class="footer">
 		<div class="contact">

@@ -22,13 +22,27 @@
 	height: 50px;
 	float: left;
 	margin-right: 20px;
-	margin-top: 5px;
 }
 
-.nav_bar_cart{
-	margin-top: 30px;
+
+.user{
+	text-align: left;
+}
+
+.nav_bar_cart_and_user{
 	float: right;
-	margin-right: 20px;
+	margin-right: 40px;
+	margin-top: -10px;
+}
+
+.login_btn{
+	float: right;
+  	display: inline-block;
+  	border: none;
+  	background: #f1f1f1;
+  	padding: 5px 5px 5px 5px;
+  	margin-right: 35px;
+  	margin-top: 7px;
 }
 
 .search_bar{
@@ -45,6 +59,8 @@
 	padding-left: 20px;
 	font-size: 20px;
 }
+
+
 
 /* Categories bar */
 
@@ -115,35 +131,6 @@
 	height: 60px;
 }
 
-/* Rating */
-.stars-outer {
-  position: relative;
-  display: inline-block;
-}
-
-.stars-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 0;
-}
-
-.stars-outer::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  color: #ccc;
-}
-
-.stars-inner::before {
-  content: "\f005 \f005 \f005 \f005 \f005";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  color: #f8ce0b;
-}
-
 /* Footer */
 
 .footer{
@@ -176,7 +163,7 @@
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input.reg_log_input[type=text], input[type=password] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px -15px;
@@ -185,7 +172,7 @@ input[type=text], input[type=password] {
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input.reg_log_input[type=text]:focus, input[type=password]:focus {
   background-color: #ddd;
   outline: none;
 
@@ -201,7 +188,6 @@ input[type=text]:focus, input[type=password]:focus {
   border: none;
   cursor: pointer;
   width: 20%;
-
 }
 
 /* Add a blue text color to links */
