@@ -54,21 +54,32 @@
   </div>
   <div class="container">
     <h1>Rejestracja</h1>
-    <p>Wypełnij poniższe dany aby założyć konto.</p>
+    <p>Wpisz swoje dane aby założyć konto.</p>
     <hr>
 
     <form action="adresendpointa">
       <label for="email"><b>Email</b></label>
       <input class="reg_log_input" type="text" placeholder="Email" name="email" id="email" required>
 
-      <label for="login"><b>Login</b></label>
-      <input class="reg_log_input" type="text" placeholder="Login" name="login" id="login" required>
-
       <label for="psw"><b>Hasło</b></label>
       <input class="reg_log_input" type="password" placeholder="Hasło" name="psw" id="psw" required>
 
       <label for="psw-repeat"><b>Powtórz hasło</b></label>
       <input class="reg_log_input" type="password" placeholder="Powtórz hasło" name="psw-repeat" id="psw-repeat" required>
+
+      <label for="phone_number"><b>Numer telefonu (wraz z numerem kierunkowym)</b></label>
+      <input class="reg_log_input" type="text" placeholder="Nr Telefonu" name="phone_number" id="phone_number" required>
+
+      <h2>Adres do wysyłek wysyłek</h2>
+
+      <label for="address_street"><b>Ulica i numer domu</b></label>
+      <input class="reg_log_input" type="text" placeholder="Ulica i nr domu" name="address_street" id="address_street" required>
+
+      <label for="address_city"><b>Miasto</b></label>
+      <input class="reg_log_input" type="text" placeholder="Miasto" name="address_city" id="address_city" required>
+
+      <label for="address_postal"><b>Kod pocztowy</b></label>
+      <input class="reg_log_input" type="password" placeholder="Kod pocztowy" name="address_postal" id="address_postal" required>
       <hr>
       <p>
         Tworząc konto zgadzasz się z naszym 
