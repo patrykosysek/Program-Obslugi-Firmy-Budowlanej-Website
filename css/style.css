@@ -205,6 +205,9 @@ input.reg_log_input[type=text]:focus, input[type=password]:focus {
 
 .pagination{
 	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
 }
 
 .pagination a {

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="js/item_list.js"></script>
 	<title> Rejestracja </title>
 	<meta charset="utf-8"/>
 </head>
@@ -57,7 +58,6 @@
     <p>Wpisz swoje dane aby założyć konto.</p>
     <hr>
 
-    <form action="adresendpointa">
       <label for="email"><b>Email</b></label>
       <input class="reg_log_input" type="text" placeholder="Email" name="email" id="email" required>
 
@@ -88,8 +88,7 @@
         <a  class="links"href="politykaprywatnosci.html"> Polityką  Prywatności </a>
         .
       </p>
-      <input type="submit" value="Zarejestruj się" class="registerbtn">
-    </form>
+      <input onclick="doregistration()" type="submit" value="Zarejestruj się" class="registerbtn">
   </div>
 
   <div class="container signin">

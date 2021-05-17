@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 	$.ajax({
-		url: "https://mirbud-restapi.herokuapp.com/przedmiot/polecane"
+		url: "https://mirbud-restapi.herokuapp.com/api/item/recommended/"
 	}).then(function(data){
 		var i;
 		for (i = 0; i < 6; i++){

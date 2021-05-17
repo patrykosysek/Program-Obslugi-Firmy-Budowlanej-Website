@@ -11,6 +11,8 @@
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 	<script type="text/javascript" src="js/item_list.js"></script>
 </head>
 <body>
@@ -62,7 +64,6 @@
 	</div>
 	<div class="main_body">
 		<div class="filter_bar">
-			<form action="endpoint_filter">
 				<span class="category_filter_element">
   					<input type="checkbox" id="bud" name="category1" value="bud">
   					<label for="category1"> Budowanie </label><br>
@@ -96,11 +97,11 @@
 					<input type="checkbox" id="ele" name="category7" value="ele">
   					<label for="category7"> Elektronika </label><br><br>
   				</span>
-  				<input class="filtr_btn" type="submit" value="Filtruj" name="filter_btn">
-			</form>
+  				<input onclick="filter()" class="filtr_btn" type="submit" value="Filtruj" name="filter_btn">
 		</div>
 		<div class="item_bar">
-			<ul class="item_list">
+			<ul class="item_list" id="lista">
+				
 			</ul>
 			<div class="center">
 				<div class="pagination"> 
