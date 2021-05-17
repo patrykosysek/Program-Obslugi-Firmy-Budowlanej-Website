@@ -196,9 +196,34 @@ input.reg_log_input[type=text]:focus, input[type=password]:focus {
 }
 
 /* Set a grey background color and center the text of the "sign in" section */
+
+/* Pagination in item_list */
 .signin {
   background-color: #f1f1f1;
   text-align: center;
 }
 
+.pagination{
+	display: inline-block;
+}
 
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #ddd; /* Gray */
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.pagination a:hover:not(.active) {
+	background-color: #ddd;
+}
+
+.center {
+  text-align: center;
+}
