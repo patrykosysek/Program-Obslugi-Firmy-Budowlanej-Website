@@ -1,14 +1,19 @@
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8" />
 
   <title> Logowanie </title>
-  
-	<link rel="stylesheet" href="css/style.css">
+  <!-- Vue.js -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
- <div class="nav_bar">
+  <div class="nav_bar">
     <a href="index.html"><img src="img/logo_small.png" class="logo"></a>
     <form class="search_bar">
       <input type="text" id="fsearch" name="fsearch" placeholder="Wpisz szukany przedmiot...">
@@ -54,22 +59,22 @@
       </li>
     </ul>
   </div>
-<div class="container">
-      <h1>Logowanie</h1>
-      <p>Wypełnij poniższe dany aby się zalogować.</p>
-      <hr>
-      <form>
-        <label for="login"><b>E-mail</b></label>
-        <input class="reg_log_input" type="text" placeholder="E-mail" name="e-mail" id="e-mail" required>
+  <div class="container">
+    <h1>Logowanie</h1>
+    <p>Wypełnij poniższe dany aby się zalogować.</p>
+    <hr>
+    <form>
+      <label for="login"><b>E-mail</b></label>
+      <input class="reg_log_input" type="text" placeholder="E-mail" name="e-mail" id="e-mail" required>
 
-        <label for="psw"><b>Hasło</b></label>
-        <input class="reg_log_input" type="password" placeholder="Hasło" name="psw" id="psw" required>
-        <hr>
-        <p>
-          Tworząc konto zgadzasz się z naszym 
-          <a href="regulamin.html">Regulaminem</a> i 
-          <a href="politykaprywatnosci.html"> Polityką Prywatności</a>.
-        </p>
+      <label for="psw"><b>Hasło</b></label>
+      <input class="reg_log_input" type="password" placeholder="Hasło" name="psw" id="psw" required>
+      <hr>
+      <p>
+        Tworząc konto zgadzasz się z naszym
+        <a href="regulamin.html">Regulaminem</a> i
+        <a href="politykaprywatnosci.html"> Polityką Prywatności</a>.
+      </p>
       <input type="submit" value="Zaloguj się" class="registerbtn">
     </form>
   </div>
@@ -77,9 +82,9 @@
   <div class="container signin">
     <p>Nie posiadasz jeszcze konta? <a href="rejestracja.html">Zarejestruj się</a>.</p>
   </div>
-<div class="footer">
+  <div class="footer">
     <div class="contact">
-     <p class="contact_element">
+      <p class="contact_element">
         Tel: <br>
         <b>123-456-789</b>
       </p>
@@ -91,13 +96,17 @@
         Adres:<br>
         <b>Abc 12<br></b>
         <b>12-345, ABC<br></b>
-        <b>Polska</b>   
+        <b>Polska</b>
       </p>
     </div>
     <p class="cookies_info">
-      W ramach naszej witryny stosujemy pliki cookies w celu świadczenia Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień dotyczących cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany ustawień dotyczących cookies.
+      W ramach naszej witryny stosujemy pliki cookies w celu świadczenia Państwu usług na najwyższym poziomie, w tym w
+      sposób dostosowany do indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień dotyczących cookies
+      oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany
+      ustawień dotyczących cookies.
     </p>
   </div>
 
 </body>
+
 </html>
