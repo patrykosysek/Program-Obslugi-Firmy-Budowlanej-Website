@@ -1,4 +1,3 @@
-<!doctype HTML>
 <html>
 
 <head>
@@ -12,6 +11,8 @@
 	<!-- axios -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js" integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	<link rel="stylesheet" type="text/css" href="css/error.css">
 </head>
 
 <body>
@@ -62,69 +63,11 @@
 		</ul>
 	</div>
 	<div class="main_body">
-		<img src="img/robol2.jpg" class="main_img">
-		<div class="recommended_items cegla1">
-			<h3>Polecane przedmioty</h3>
-			<ul>
-				<li>
-					<div class="recommended_item item0">
-						<img src="img/cegla1.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item1">
-						<img src="img/cegla2.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item2">
-						<img src="img/cegla3.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item3">
-						<img src="img/cegla1.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item4">
-						<img src="img/cegla2.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item5">
-						<img src="img/cegla3.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-			</ul>
-		</div>
+		<h1 class="header">Ups! Coś poszło nie tak!</h1>
+		<h2 class="message">{{message}}</h2>
 	</div>
-	<br>
-	<div class="footer">
+    <div class="footer">
+		<script src="js/error.js"></script>
 		<div class="contact">
 			<p class="contact_element">
 				Tel: <br>
@@ -147,8 +90,6 @@
 			cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym
 			czasie zmiany ustawień dotyczących cookies.
 		</p>
-			<!-- Reccomended script -->
-	<script src="js/recommended.js"></script>
 	</div>
 </body>
 
