@@ -25,7 +25,16 @@
 
 */
 
-Vue.component('recommended-items', {
+Vue.component('recommended-item', {
+	data: function() {
+		return {
+		item_index: 0,
+		item_photo_url: '',
+		item_name: '',
+		item_price: '',
+		item_rating: ''
+		}
+	},
 	props: ['cats'],
 	template: `
 				<li>
@@ -46,11 +55,7 @@ app = new Vue({
 		
 	],
 	data: {
-		item_index: 0,
-		item_photo_url: '',
-		item_name: '',
-		item_price: '',
-		item_rating: ''
+		
 	},
 	mounted() {
 		axios.get('https://mirbud-restapi.herokuapp.com/api/item/recommended/')
@@ -61,8 +66,8 @@ app = new Vue({
 		getRecommendedItems(response);
 	},
 	methods: {
-		getRecommendedItems: function(){
-
+		getRecommendedItems: function(response){
+			
 		}
 	}
 })
