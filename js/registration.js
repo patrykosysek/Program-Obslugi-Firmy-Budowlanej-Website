@@ -232,6 +232,7 @@ new Vue({
       this.user.nazwisko = "";
       this.user.nrTelefonu = "";
       this.user.ulicaNrDomu = "";
+      this.reapet_password ="";
       this.completed = false;
     },
   },
