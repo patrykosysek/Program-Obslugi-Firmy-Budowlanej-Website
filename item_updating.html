@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- axios -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js"
+      integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <title>Modyfing</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav_bar">
+        <a href="index.html"><img src="img/logo_small.png" class="logo" /></a>
+        <form class="search_bar">
+          <input
+            type="text"
+            id="fsearch"
+            name="fsearch"
+            placeholder="Wpisz szukany przedmiot..."
+          />
+        </form>
+
+        <div class="nav_bar_cart_and_user">
+          <div class="user">
+            <h4>Witaj gościu!</h4>
+          </div>
+          <div class="cart_all">
+            <a href="koszyk.html"><img src="img/cart.png" class="cart" /> </a>
+            <p class="item_number">Ilość przedmiotów w koszyku:</p>
+          </div>
+          <a href="logowanie.html">
+            <button class="login_btn" type="button">
+              Zaloguj/Zarejestruj się
+            </button>
+          </a>
+        </div>
+      </div>
+      <div class="categories_bar">
+        <ul>
+          <li>
+            <a href="item_list.html?category=bud">Budowanie</a>
+          </li>
+          <li>
+            <a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
+          </li>
+          <li>
+            <a href="item_list.html?category=tec">Technika</a>
+          </li>
+          <li>
+            <a href="item_list.html?category=mie">Mieszkanie</a>
+          </li>
+          <li>
+            <a href="item_list.html?category=kuc">Kuchnia</a>
+          </li>
+          <li>
+            <a href="item_list.html?category=laz">Łazienka</a>
+          </li>
+          <li>
+            <a href="item_list.html?category=ele">Elektronika</a>
+          </li>
+        </ul>
+      </div>
+      <div class="container">
+        <h1>Przedmiot ID: {{item.id}}</h1>
+
+        <hr />
+        <label for="nazwa"><b>Nazwa</b></label>
+        <input
+          class="reg_log_input"
+          type="text"
+          placeholder="Nazwa"
+          name="item.nazwa"
+          id="nazwa"
+          v-model="item.nazwa"
+          required
+        />
+        <label for="opis"><b>Opis</b></label>
+        <input
+          class="reg_log_input"
+          type="text"
+          placeholder="Opis"
+          name="item.opis"
+          id="opis"
+          v-model="item.opis"
+          required
+        />
+        <label for="cenaSprzedazy"><b>Cena sprzedaży</b></label>
+        <input
+          class="reg_log_input"
+          type="number"
+          placeholder="Cena sprzedaży"
+          name="item.cenaSprzedazy"
+          id="cenaSprzedazy"
+          v-model="item.cenaSprzedazy"
+          required
+        />
+        <p></p>
+        <label for="iloscNaMagazynie"><b>Ilość na magazynie</b></label>
+        <input
+          class="reg_log_input"
+          type="number"
+          placeholder="Ilość na magazynie"
+          name="item.iloscNaMagazynie"
+          id="iloscNaMagazynie"
+          v-model="item.iloscNaMagazynie"
+          required
+        />
+        <p></p>
+        <label for="czyArchiwalny"><b>Czy archiwalny</b></label>
+        <input
+          class="reg_log_input"
+          type="checkbox"
+          name="item.czyArchiwalny"
+          id="czyArchiwalny"
+          v-model="item.czyArchiwalny"
+          required
+        />
+        <p></p>
+        <label for="kategorie"><b>Kategorie</b></label>
+        <input
+          class="reg_log_input"
+          type="text"
+          name="item.kategorie"
+          id="kategorie"
+          v-model="item.kategorie"
+          required
+        />
+        <label for="zdjecia"><b>Zdjęcia</b></label>
+        <input
+          class="reg_log_input"
+          type="text"
+          name="item.zdjecia"
+          id="zdjecia"
+          v-model="item.zdjecia"
+          required
+        />
+        <label for="materialyElektroniczne"
+          ><b>Materiały elektroniczne</b></label
+        >
+        <input
+          class="reg_log_input"
+          type="text"
+          name="item.materialyElektroniczne"
+          id="materialyElektroniczne"
+          v-model="item.materialyElektroniczne"
+          required
+        />
+        <hr />
+        <p>
+          Tworząc konto zgadzasz się z naszym
+          <a class="links" href="regulamin.html">Regulaminem</a>
+          i
+          <a class="links" href="politykaprywatnosci.html">
+            Polityką Prywatności
+          </a>
+          .
+        </p>
+        <button class="registerbtn">Zarejestruj się</button>
+      </div>
+
+      <div class="container signin">
+        <p>
+          Posiadasz już konto?
+          <a class="links" href="logowanie.html">Zaloguj się</a>.
+        </p>
+      </div>
+      <div class="footer">
+        <div class="contact">
+          <p class="contact_element">
+            Tel: <br />
+            <b>123-456-789</b>
+          </p>
+          <p class="contact_element">
+            E-mail:<br />
+            <b>tab@Mirbud.pl</b>
+          </p>
+          <p class="contact_element">
+            Adres:<br />
+            <b>Abc 12<br /></b>
+            <b>12-345, ABC<br /></b>
+            <b>Polska</b>
+          </p>
+        </div>
+        <p class="cookies_info">
+          W ramach naszej witryny stosujemy pliki cookies w celu świadczenia
+          Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do
+          indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień
+          dotyczących cookies oznacza, że będą one zamieszczane w Państwa
+          urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany
+          ustawień dotyczących cookies.
+        </p>
+      </div>
+    </div>
+
+    <script src="js/modyfing.js"></script>
+  </body>
+</html>
