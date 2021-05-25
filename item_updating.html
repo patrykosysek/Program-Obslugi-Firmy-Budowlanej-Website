@@ -105,6 +105,7 @@
           v-model="item.cenaSprzedazy"
           required
         />
+        zł
         <p></p>
         <label for="iloscNaMagazynie"><b>Ilość na magazynie</b></label>
         <input
@@ -116,6 +117,7 @@
           v-model="item.iloscNaMagazynie"
           required
         />
+        szt.
         <p></p>
         <label for="czyArchiwalny"><b>Czy archiwalny</b></label>
         <input
@@ -127,13 +129,21 @@
           required
         />
         <p></p>
+        <label for="dost_kategorie"><b>Dostępne kategorie:</b></label>
+        <span
+          v-for="kategoria in dostepne_kategorie"
+          :key="kategoria.nazwaKategorii"
+        >
+          {{kategoria.nazwaKategorii}}
+        </span>
+        <p></p>
         <label for="kategorie"><b>Kategorie</b></label>
         <input
           class="reg_log_input"
           type="text"
-          name="item.kategorie"
-          id="kategorie"
-          v-model="item.kategorie"
+          name="item.kategoriaId"
+          id="kategoriaId"
+          v-model="item.kategoriaId"
           required
         />
         <label for="zdjecia"><b>Zdjęcia</b></label>
@@ -157,23 +167,7 @@
           required
         />
         <hr />
-        <p>
-          Tworząc konto zgadzasz się z naszym
-          <a class="links" href="regulamin.html">Regulaminem</a>
-          i
-          <a class="links" href="politykaprywatnosci.html">
-            Polityką Prywatności
-          </a>
-          .
-        </p>
-        <button class="registerbtn">Zarejestruj się</button>
-      </div>
-
-      <div class="container signin">
-        <p>
-          Posiadasz już konto?
-          <a class="links" href="logowanie.html">Zaloguj się</a>.
-        </p>
+        <button @click="update" class="registerbtn">Zapisz</button>
       </div>
       <div class="footer">
         <div class="contact">

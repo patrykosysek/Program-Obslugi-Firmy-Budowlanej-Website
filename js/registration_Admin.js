@@ -276,11 +276,11 @@ new Vue({
     register() {
       if (this.admin == true) {
         this.url =
-          "https://mirbud-restapi.herokuapp.com/api/clients/registration";
+          "https://mirbud-restapi.herokuapp.com/api/clients/registration/admin";
         this.isOk = true;
       } else if (this.manager == true) {
         this.url =
-          "https://mirbud-restapi.herokuapp.com/api/clients/registration";
+          "https://mirbud-restapi.herokuapp.com/api/clients/registration/manager";
         this.isOk = true;
       } else if (this.client == true) {
         ("https://mirbud-restapi.herokuapp.com/api/clients/registration");

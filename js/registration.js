@@ -54,7 +54,6 @@ new Vue({
     </ul>
   </div>
   <div class="container">
-  <button @click="test">halo</button>
     <h1>Rejestracja</h1>
     <p>Wpisz swoje dane aby założyć konto.</p>
     <hr />
@@ -261,13 +260,6 @@ new Vue({
         this.user.haslo = "";
         this.reapet_password = "";
       }
-    },
-    test() {
-      localStorage["item_id"] = 1;
-
-      window.location.replace(
-        "D:/REPO/Program-Obslugi-Firmy-Budowlanej-Website/item_updating.html"
-      );
     },
   },
 });
