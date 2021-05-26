@@ -283,15 +283,18 @@ new Vue({
           "https://mirbud-restapi.herokuapp.com/api/clients/registration/manager";
         this.isOk = true;
       } else if (this.client == true) {
-        ("https://mirbud-restapi.herokuapp.com/api/clients/registration");
+        this.url =
+          "https://mirbud-restapi.herokuapp.com/api/clients/registration";
         this.isOk = true;
       } else alert("Wybierz użytkownika do zarejestrowania");
 
       if (this.isOk == true) {
         this.isOk == false;
+        console.log(this.user);
         if (this.user.haslo == this.reapet_password) {
           axios.post(this.url, this.user).then(
             (response) => {
+              console.log(this.user);
               alert("Rejestracja przebiegła pomyślnie");
               this.completed = true;
             },

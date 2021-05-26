@@ -129,6 +129,11 @@
           required
         />
         <p></p>
+        <div style="display: flex">
+          <button @click="update" class="registerbtnupdate">Zapisz</button>
+        </div>
+        
+        <p></p>
         <label for="dost_kategorie"><b>Dostępne kategorie:</b></label>
         <span
           v-for="kategoria in dostepne_kategorie"
@@ -137,37 +142,72 @@
           {{kategoria.nazwaKategorii}}
         </span>
         <p></p>
+        <label for="kategorie_przed"><b>Kategorie przedmiotu:</b></label>
+        <span
+          v-for="kategoria in przedmiot_kategorie"
+          :key="kategoria.nazwaKategorii"
+        >
+          {{kategoria}}
+        </span>
+        <p></p>
         <label for="kategorie"><b>Kategorie</b></label>
         <input
           class="reg_log_input"
           type="text"
-          name="item.kategoriaId"
-          id="kategoriaId"
-          v-model="item.kategoriaId"
+          name="dodaj_kategoria"
+          id="dodaj_kategoria"
+          v-model="dodaj_kategoria"
           required
         />
+        <div style="display: flex; padding: 5px">
+          <button @click="addCategory" style="margin: 5px">Dodaj</button>
+          <button @click="deleteCategory" style="margin: 5px">Usuń</button>
+          <button @click="addNewCategory" style="margin: 5px">Nowa</button>
+        </div>
+        <p></p>
+        <label for="zdjecia_przed"><b>Zdjecia przedmiotu:</b></label>
+        <span v-for="zdjecie in przedmiot_zdjecia" :key="zdjecie.id">
+          {{zdjecie}}
+        </span>
+        <p></p>
         <label for="zdjecia"><b>Zdjęcia</b></label>
         <input
           class="reg_log_input"
           type="text"
-          name="item.zdjecia"
-          id="zdjecia"
-          v-model="item.zdjecia"
+          name="dodaj_zdjecie"
+          id="dodaj_zdjecie"
+          v-model="dodaj_zdjecie"
           required
         />
+        <div style="display: flex; padding: 5px">
+          <button @click="addImage" style="margin: 5px">Dodaj</button>
+          <button @click="deleteImage" style="margin: 5px">Usuń</button>
+        </div>
+        <p></p>
+        <label for="materialy_przed"
+          ><b>Materiały elektroniczne przedmiotu:</b></label
+        >
+        <span v-for="material in przedmiot_materialy" :key="material.id">
+          {{material}}
+        </span>
+        <p></p>
         <label for="materialyElektroniczne"
           ><b>Materiały elektroniczne</b></label
         >
         <input
           class="reg_log_input"
           type="text"
-          name="item.materialyElektroniczne"
-          id="materialyElektroniczne"
-          v-model="item.materialyElektroniczne"
+          name="dodaj_material"
+          id="dodaj_material"
+          v-model="dodaj_material"
           required
         />
+        <div style="display: flex; padding: 5px">
+          <button @click="addMaterial" style="margin: 5px">Dodaj</button>
+          <button @click="deleteMaterial" style="margin: 5px">Usuń</button>
+        </div>
+        <p></p>
         <hr />
-        <button @click="update" class="registerbtn">Zapisz</button>
       </div>
       <div class="footer">
         <div class="contact">
