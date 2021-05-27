@@ -140,6 +140,13 @@
 	overflow: auto;
 }
 
+.footer_admin{
+	position: absolute;
+	bottom: 0;
+	height: auto;
+	background-color: orange;
+	overflow: auto;
+}
 .cookies_info{
 	font-size: 12px;
 	float: right;	/* nie wiem jakim chujem to dziala ale to sprawia ze info jest pod kontaktem */
@@ -200,6 +207,19 @@ input.reg_log_input[type=text]:focus, input[type=password]:focus {
 	cursor: pointer;
 	width: 10%;
   }
+
+  .adminbtns {
+	display: flex;
+	background-color: orange;
+	color: black;
+	padding: 16px 20px;
+	margin: 8px;
+	text-align: center;
+	border: black;
+	cursor: pointer;
+	width: 20%;
+  }
+
 
 /* Add a blue text color to links */
 .links {

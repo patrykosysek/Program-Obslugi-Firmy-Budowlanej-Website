@@ -2,57 +2,6 @@ new Vue({
   el: "#app",
 
   template: ` <div>
-  <div class="nav_bar">
-    <a href="index.html"><img src="img/logo_small.png" class="logo" /></a>
-    <form class="search_bar">
-      <input
-        type="text"
-        id="fsearch"
-        name="fsearch"
-        placeholder="Wpisz szukany przedmiot..."
-      />
-    </form>
-
-    <div class="nav_bar_cart_and_user">
-      <div class="user">
-        <h4>Witaj gościu!</h4>
-      </div>
-      <div class="cart_all">
-        <a href="koszyk.html"><img src="img/cart.png" class="cart" /> </a>
-        <p class="item_number">Ilość przedmiotów w koszyku:</p>
-      </div>
-      <a href="logowanie.html">
-        <button class="login_btn" type="button">
-          Zaloguj/Zarejestruj się
-        </button>
-      </a>
-    </div>
-  </div>
-  <div class="categories_bar">
-    <ul>
-      <li>
-        <a href="item_list.html?category=bud">Budowanie</a>
-      </li>
-      <li>
-        <a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
-      </li>
-      <li>
-        <a href="item_list.html?category=tec">Technika</a>
-      </li>
-      <li>
-        <a href="item_list.html?category=mie">Mieszkanie</a>
-      </li>
-      <li>
-        <a href="item_list.html?category=kuc">Kuchnia</a>
-      </li>
-      <li>
-        <a href="item_list.html?category=laz">Łazienka</a>
-      </li>
-      <li>
-        <a href="item_list.html?category=ele">Elektronika</a>
-      </li>
-    </ul>
-  </div>
   <div class="container">
     <h1>Rejestracja</h1>
     <p>Wpisz swoje dane aby założyć konto.</p>
@@ -189,50 +138,8 @@ new Vue({
       v-model="user.kodPocztowy"
       required
     />
-    <hr />
-    <p>
-      Tworząc konto zgadzasz się z naszym
-      <a class="links" href="regulamin.html">Regulaminem</a>
-      i
-      <a class="links" href="politykaprywatnosci.html">
-        Polityką Prywatności
-      </a>
-      .
-    </p>
-    <button @click="register" class="registerbtn">Zarejestruj się</button>
-  </div>
-
-  <div class="container signin">
-    <p>
-      Posiadasz już konto?
-      <a class="links" href="logowanie.html">Zaloguj się</a>.
-    </p>
-  </div>
-  <div class="footer">
-    <div class="contact">
-      <p class="contact_element">
-        Tel: <br />
-        <b>123-456-789</b>
-      </p>
-      <p class="contact_element">
-        E-mail:<br />
-        <b>tab@Mirbud.pl</b>
-      </p>
-      <p class="contact_element">
-        Adres:<br />
-        <b>Abc 12<br /></b>
-        <b>12-345, ABC<br /></b>
-        <b>Polska</b>
-      </p>
-    </div>
-    <p class="cookies_info">
-      W ramach naszej witryny stosujemy pliki cookies w celu świadczenia
-      Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do
-      indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień
-      dotyczących cookies oznacza, że będą one zamieszczane w Państwa
-      urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany
-      ustawień dotyczących cookies.
-    </p>
+   
+    <button @click="register" class="registerbtn">Zarejestruj użytkownika</button>
   </div>
 </div>`,
 

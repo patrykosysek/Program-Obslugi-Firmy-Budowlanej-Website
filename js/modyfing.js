@@ -243,5 +243,10 @@ new Vue({
           }
         );
     },
+    goBack() {
+      window.location.replace(
+        "testing.html"
+      );
+    },
   },
 });
