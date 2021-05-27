@@ -1,71 +1,95 @@
-function generateItem(number, photo_url, item_name, item_price, item_rating) {
-	var html = "";
-	html += '<li>';
-	html += '<div class="item item' + number + '">';
-	html += '<img src="' + photo_url + '" class="item_photo">';
-	html += '<h4 class="item_name">' + item_name + '</h4>';
-	html += '<h4 class="item_price">Cena za sztukę: ' + item_price + '</h4>';
-	html += '<h4 class="item_rating">Ocena: ' + item_rating + '</h4>';
-	html += '<img src="img/add_to_cart.png" class="add_to_cart">';
-	html += '</div>';
-	html += '</li>';
+app = new Vue({
+	el: '.item_bar',
+	data: {
+		items: [], // all items list loaded from API
+		viewedItems: [], // items currently rendered
+		categoryQueryString: "",
+		lastRenderedItemIndex: 12
+	},
+	created: function() {
+		//get the category from urlQuery
+		const urlParams = new URLSearchParams(window.location.search);
+		const categoriesParam = urlParams.get('category');
 
-	return html;
-}
+		//check checkbox on given value
+		var el = document.querySelector("#" + categoriesParam);
+		el.click();
+		this.categoryQueryString = categoriesParam;
 
-window.onload = readCategoriesFromUrlQuery;
 
-function readCategoriesFromUrlQuery() {
-	const urlParams = new URLSearchParams(window.location.search);
-	const myParam = urlParams.get('category');
-	var el = document.querySelector("#" + myParam);
-	el.click();
-}
+		var queryURL = 'https://mirbud-restapi.herokuapp.com/api/item/categories/' + this.categoryQueryString;
 
-function filter() {
-	var bud = document.getElementById("bud");
-	var ogr = document.getElementById("ogr");
-	var tec = document.getElementById("tec");
-	var mie = document.getElementById("mie");
-	var kuc = document.getElementById("kuc");
-	var laz = document.getElementById("laz");
-	var ele = document.getElementById("ele");
+		var data;
+		// get data from API
+		// fucntion must be async await to make sure
+		// all data will be fetched correctly
+		const sendGetRequest = async () => {
+			try{
+				const resp = await axios.get(queryURL);
+				this.items = resp.data; 
 
-	if (mie.checked == true) {
-		$.getJSON('https://mirbud-restapi.herokuapp.com/api/item/categories/meble', function (data) {
-			var html = "";
-			for (var i = 0; i < data.length; i++) {
-				html += generateItem(data[i].id, data[i].zdjecia, data[i].nazwa, data[i].cenaSprzedazy, data[i].ocena);
+				// items are fetched now, assign first 12 to render them
+				var i;
+				for (i = 0; i < this.lastRenderedItemIndex; i ++){
+					this.viewedItems.push(this.items[i]);
+				}
+				console.log(this.viewedItems);
 			}
-			document.getElementById("lista").innerHTML += html;
-		});
+			catch (err){
+				window.location.href = 'error.html?error=503';
+			}
+		};
+		sendGetRequest();
+		
+	},
+	methods: {
+		clickForward : function(){
+			if (this.lastRenderedItemIndex == this.items.length + 1){
+				return;
+			}
+
+			viewedItems = [];
+			var i;
+			if (this.lastRenderedItemIndex + 12 < this.items.length){
+				for (i = this.lastRenderedItemIndex; i < this.lastRenderedItemIndex + 12; i++){
+					this.viewedItems.push(this.items[i]);
+				}
+				this.lastRenderedItemIndex = this.lastRenderedItemIndex + 12;
+			}
+			else{
+				for (i = this.lastRenderedItemIndex; i < this.items.length; i++){
+					this.viewedItems.push(this.items[i]);
+				}
+				this.lastRenderedItemIndex = this.lastRenderedItemIndex + this.items.length;
+			}
+		}
 	}
-}
+})
 
-const data = {
-	"email": "email@osyslubissacpalska.com",
-	"haslo": "haslo",
-	"imie": "imie",
-	"kodPocztowy": "kod",
-	"miejscowosc": "miejscowosc",
-	"nazwisko": "nazwisko",
-	"nrTelefonu": "123456789",
-	"ulicaNrDomu": "ulica"
-};
+Vue.component('displayed-item', {
 
-function doregistration() {
-	fetch('https://mirbud-restapi.herokuapp.com/api/clients/registration', {
-		method: 'POST', // or 'PUT'
-		headers: {
-			'Content-Type': 'application/json',
-		},
-		body: JSON.stringify(data),
-	})
-		.then(response => response.json())
-		.then(data => {
-			console.log('Success:', data);
-		})
-		.catch((error) => {
-			console.error('Error:', error);
-		});
-}
+	methods : {
+		addToCart : function(id){
+			console.log(id);
+		}
+	},
+	props: ['item_class', 'item_photo_url', 'item_name', 'item_price', 'item_rating', 'item_id'],
+	template: `
+				<li>
+				<div :class="item_class">
+					<img :src="item_photo_url" class="item_photo">
+					<h4 class="item_name">{{item_name}}</h4>
+					<h4 class="item_price">Cena za sztukę: {{item_price}}</h4>
+					<h4 class="item_rating">Ocena: {{item_rating}}</h4>
+					<button class="add_to_cart_button"  v-on:click="addToCart(item_id)">
+						<div class="add_to_cart_box">
+							<img src="img/add_to_cart.png" class="add_to_cart">
+							<p>
+								Dodaj do koszyka
+							</p>
+						</div>
+					</button>
+				</div>
+			</li>
+		`
+})
