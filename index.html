@@ -39,87 +39,41 @@
 	<div class="categories_bar">
 		<ul>
 			<li>
-				<a href="item_list.html?category=bud">Budowanie</a>
+				<a href="item_list.html?category=budowanie">Budowanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
+				<a href="item_list.html?category=ogrod">Ogród i wypoczynek</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=tec">Technika</a>
+				<a href="item_list.html?category=technika">Technika</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=mie">Mieszkanie</a>
+				<a href="item_list.html?category=meble">Mieszkanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=kuc">Kuchnia</a>
+				<a href="item_list.html?category=kuchnia">Kuchnia</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=laz">Łazienka</a>
+				<a href="item_list.html?category=lazienka">Łazienka</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=ele">Elektronika</a>
+				<a href="item_list.html?category=elektronika">Elektronika</a>
 			</li>
 		</ul>
 	</div>
 	<div class="main_body">
 		<img src="img/robol2.jpg" class="main_img">
-		<div class="recommended_items cegla1">
+		<div class="recommended_items">
 			<h3>Polecane przedmioty</h3>
 			<ul>
-				<li>
-					<div class="recommended_item item0">
-						<img src="img/cegla1.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item1">
-						<img src="img/cegla2.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item2">
-						<img src="img/cegla3.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item3">
-						<img src="img/cegla1.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item4">
-						<img src="img/cegla2.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
-				<li>
-					<div class="recommended_item item5">
-						<img src="img/cegla3.jpg" class="item_photo">
-						<h4 class="item_name"></h4>
-						<h4 class="item_price">Cena za sztukę: </h4>
-						<h4 class="item_rating">Ocena: </h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
-					</div>
-				</li>
+				<recommended-item
+					v-for="item in items"
+					v-bind:class="'recommended_item ' + 'item' + item.id"
+					v-bind:item_photo_url="item.zdjecia"
+					v-bind:item_name="item.nazwa"
+					v-bind:item_price="item.cenaSprzedazy"
+					v-bind:item_rating="item.ocena"
+				></recommended-item>
 			</ul>
 		</div>
 	</div>

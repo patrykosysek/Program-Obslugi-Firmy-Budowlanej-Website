@@ -8,12 +8,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- axios -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js" integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style_item_list.css">
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-
-	<script type="text/javascript" src="js/item_list.js"></script>
 </head>
 
 <body>
@@ -41,32 +41,32 @@
 	<div class="categories_bar">
 		<ul>
 			<li>
-				<a href="item_list.html?category=bud">Budowanie</a>
+				<a href="item_list.html?category=budowanie">Budowanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
+				<a href="item_list.html?category=ogrod">Ogród i wypoczynek</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=tec">Technika</a>
+				<a href="item_list.html?category=technika">Technika</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=mie">Mieszkanie</a>
+				<a href="item_list.html?category=meble">Mieszkanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=kuc">Kuchnia</a>
+				<a href="item_list.html?category=kuchnia">Kuchnia</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=laz">Łazienka</a>
+				<a href="item_list.html?category=lazienka">Łazienka</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=ele">Elektronika</a>
+				<a href="item_list.html?category=elektronika">Elektronika</a>
 			</li>
 		</ul>
 	</div>
 	<div class="main_body">
 		<div class="filter_bar">
 			<span class="category_filter_element">
-				<input type="checkbox" id="bud" name="category1" value="bud">
+				<input type="checkbox" id="budowanie" name="category1" value="bud">
 				<label for="category1"> Budowanie </label><br>
 			</span>
 			<span class="category_filter_element">
@@ -102,12 +102,19 @@
 		</div>
 		<div class="item_bar">
 			<ul class="item_list" id="lista">
-
+				<displayed-item
+				v-for="item in viewedItems"
+				v-bind:class="'item ' + 'item' + item.id"
+				v-bind:item_photo_url="item.zdjecia"
+				v-bind:item_name="item.nazwa"
+				v-bind:item_price="item.cenaSprzedazy"
+				v-bind:item_rating="item.ocena"
+				v-bind:item_id="item.id"
+				></displayed-item>
 			</ul>
 			<div class="center">
 				<div class="pagination">
-					<a href="#">&laquo;</a>
-					<a href="#">&raquo;</a>
+					<a href="javascript:void(0)" v-on:click="clickForward">Pokaż więcej</a>
 				</div>
 			</div>
 		</div>
@@ -136,6 +143,7 @@
 			czasie zmiany ustawień dotyczących cookies.
 		</p>
 	</div>
+	<script type="text/javascript" src="js/item_list.js"></script>
 </body>
 
 </html>
