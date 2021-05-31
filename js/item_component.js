@@ -1,10 +1,25 @@
+// Functions for easy array acces from localStorage
 
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
 
 Vue.component('displayed-item', {
 
 	methods : {
 		addToCart : function(item_id, item_name, item_photo_url, item_price, item_rating){
-			localStorage.setObj()
+			var cartArray = localStorage.getObj('cart');
+			cartArray.push({
+				item_id: item_id,
+				item_name: item_name,
+				item_photo_url: item_photo_url,
+				item_price: item_price,
+				item_rating: item_rating
+			})
+			localStorage.setObj('cart', cartArray);
 			// Display a toast message
 			this.$toast.open({
 				message: "Przedmiot: " + item_name + " został pomyślnie dodany do koszyka",
