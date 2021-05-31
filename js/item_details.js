@@ -1,4 +1,7 @@
 var slideIndex = 1;
+function showFirst(){
+  alert("dupa");
+};
 showSlides(slideIndex);
 
 // Next/previous controls
