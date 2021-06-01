@@ -1,12 +1,3 @@
-// Functions for easy array acces from localStorage
-
-Storage.prototype.setObj = function(key, obj) {
-    return this.setItem(key, JSON.stringify(obj))
-}
-Storage.prototype.getObj = function(key) {
-    return JSON.parse(this.getItem(key))
-}
-
 Vue.component('displayed-item', {
 
 	methods : {
@@ -19,6 +10,7 @@ Vue.component('displayed-item', {
 				item_price: item_price,
 				item_rating: item_rating
 			})
+			localStorage.removeItem('cart');
 			localStorage.setObj('cart', cartArray);
 			// Display a toast message
 			this.$toast.open({

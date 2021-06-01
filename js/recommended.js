@@ -26,10 +26,13 @@ app = new Vue({
 		});
 	},
 	created() {
-		// create new cart object if one doesnt exist
-		if (localStorage.getObj('cart') == null){
-			var cart = [];
-			localStorage.setObj('cart', cart);
-		}
+		// // create new cart object if one doesnt exist
+		// if (localStorage.getObj('cart') == null){
+		// 	var cart = [];
+		// 	localStorage.setObj('cart', cart);
+		// }
+		localStorage.removeItem('cart');
+		var cart = [];
+		localStorage.setObj('cart', cart);
 	},
 })
