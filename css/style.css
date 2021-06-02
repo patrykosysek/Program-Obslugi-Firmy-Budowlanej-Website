@@ -52,6 +52,13 @@
 	float: left;
 }
 
+.search_bar_admin{
+	display: flex;
+	margin-top: 50px;
+	margin-right: 100px;
+	float: left;
+}
+
 .search_bar input{
 	height: 40px;
 	width: 500px;
