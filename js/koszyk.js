@@ -16,65 +16,81 @@ app = new Vue({
 	data: {
 		cart: [] // cart items loaded from localStorage
 	},
-	beforeCreate() {
-		// load cart items from localStorage
+	created() {
+		// getting objects must be in created funciton
 		this.cart = localStorage.getObj('cart');
-		console.log(this.cart[0].item_name);
 	},
 	mounted() {
-
-		var removeCartItemButtons = document.getElementsByClassName('btn-danger')
-		console.log(removeCartItemButtons)
+		// add remove button action and quantity changed event to every cart element
+		var removeCartItemButtons = document.getElementsByClassName('btn-danger');
 		for (var i = 0; i < removeCartItemButtons.length; i++) {
 			var button = removeCartItemButtons[i]
-			button.addEventListener('click', this.removeCartItem)
+			button.addEventListener('click', this.removeCartItem);
 		}
 	
-		var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+		var quantityInputs = document.getElementsByClassName('cart-quantity-input');
 		for (var i = 0; i < quantityInputs.length; i++) {
-			var input = quantityInputs[i]
-			input.addEventListener('change', this.quantityChanged)
+			var input = quantityInputs[i];
+			input.addEventListener('change', this.quantityChanged);
 		}
 	
-		document.getElementsByClassName('btn-purchase')[0].addEventListener('click', this.purchaseClicked)
+		document.getElementsByClassName('btn-purchase')[0].addEventListener('click', this.purchaseClicked);
+		this.updateCartTotal();
 	},
 	methods: {
 		purchaseClicked : function(){
-			alert("Dziękujemy za złożenie zamówienia")
-			var cartItems = document.getElementsByClassName('cart-items')[0]
+			alert("Dziękujemy za złożenie zamówienia");
+			localStorage.setObj('cart', []);
+			var cartItems = document.getElementsByClassName('cart-items')[0];
 			while (cartItems.hasChildNodes()) {
-				cartItems.removeChild(cartItems.firstChild)
+				cartItems.removeChild(cartItems.firstChild);
 			}
-			updateCartTotal()
+			this.updateCartTotal();
 		},
 		quantityChanged : function(event){
-			var input = event.target
+			var input = event.target;
 			if (isNaN(input.value) || input.value <= 0) {//chcemy 1 lub wiecej
-				input.value = 1
+				input.value = 1;
 			}
-			updateCartTotal()
+			this.updateCartTotal();
 		},
 		removeCartItem : function(event){
 			//usuwanie produktów z koszyka
-			var buttonClicked = event.target
-			buttonClicked.parentElement.parentElement.remove()
-			updateCartTotal()
+			var buttonClicked = event.target;
+			// usun przedmiot z listy przedmiotow
+			var classString = buttonClicked.parentElement.parentElement.className;
+			var classesSeparated = classString.split(' ');
+			var itemId = classesSeparated[1];
+			console.log(this.cart);
+			for (var i = 0; i < this.cart.length; i++){
+				console.log(this.cart[i].item_id);
+				if (itemId == this.cart[i].item_id){
+					this.cart.splice(i, 1);
+				}
+			}
+			console.log(this.cart);
+			localStorage.removeItem('cart');
+			localStorage.setObj('cart', this.cart);
+			// usun przedmiot z widoku
+			buttonClicked.parentElement.parentElement.remove();
+			
+			this.updateCartTotal();
 		},
 		updateCartTotal : function(){
-			var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-			var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-			var total = 0
+			var cartItemContainer = document.getElementsByClassName('cart-items')[0];
+			var cartRows = cartItemContainer.getElementsByClassName('cart-row');
+			var total = 0;
 			for (var i = 0; i < cartRows.length; i++) {
-				var cartRow = cartRows[i]
-				var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+				var cartRow = cartRows[i];
+				var priceElement = cartRow.getElementsByClassName('cart-price')[0];
 				var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')
 				[0]
-				var price = parseFloat(priceElement.innerText.replace(' zł', ''))
-				var quantity = quantityElement.value
-				total = total + (price * quantity)
+				var price = parseFloat(priceElement.innerText.replace(' zł', ''));
+				var quantity = quantityElement.value;
+				total = total + (price * quantity);
 			}
 			total = Math.round(total * 100) / 100 //zeby nie bylo miliona liczb po przecinku
-			document.getElementsByClassName('cart-total-price')[0].innerText = total + ' zł'
+			document.getElementsByClassName('cart-total-price')[0].innerText = total + ' zł';
 		}
 	}
 })
