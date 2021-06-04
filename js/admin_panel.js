@@ -18,7 +18,7 @@ new Vue({
         document.getElementById('frame').src =("item_updating.html");
     },
     add_item() {
-        document.getElementById('frame').src =("admin_item_list.html");
+        document.getElementById('frame').src =("adding_item.html");
     },
   },
 });
