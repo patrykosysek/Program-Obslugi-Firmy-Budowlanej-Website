@@ -46,17 +46,47 @@ app = new Vue({
 				"itemsQuantity": []
 			}
 			var userData = sessionStorage.getObj('userData');
-			//TODO jsonPostParams.clientId = userData.
+			jsonPostParams.clientId = userData.id;
 
 			for(var i = 0; i < this.cart.length; i++){
 				jsonPostParams.itemsId.push(this.cart[i].item_id);
 				jsonPostParams.itemsQuantity.push(this.cart[i].item_count);
 			}
 
-			console.log(jsonPostParams);
+			if (jsonPostParams.itemsId.length == 0){
+				this.$toast.open({
+					message: "Zamówienie nie zostało złożone. Koszyk jest pusty!",
+					type: "warning",
+					duration: 5000,
+					dismissible: true,
+					position: 'bottom'
+				});
+				return;
+			}
 
-			axios.post('https://mirbud-restapi.herokuapp.com/api/orders', jsonPostParams);
-			localStorage.setObj('cart', []);
+			axios.post('https://mirbud-restapi.herokuapp.com/api/orders', jsonPostParams)
+			.then((response) =>{
+				this.$toast.open({
+					message: "Zamówienie zostało złożone!",
+					type: "success",
+					duration: 5000,
+					dismissible: true,
+					position: 'bottom'
+				});
+			},
+			(error) => {
+				// Display an error
+				this.$toast.open({
+					message: "Zamówienie nie zostało złożone. Spróbuj ponownie za chwilę",
+					type: "warning",
+					duration: 5000,
+					dismissible: true,
+					position: 'bottom'
+				});
+				return;
+			});
+			this.cart = [];
+			localStorage.setObj('cart', this.cart);
 			var cartItems = document.getElementsByClassName('cart-items')[0];
 			while (cartItems.hasChildNodes()) {
 				cartItems.removeChild(cartItems.firstChild);
@@ -84,7 +114,6 @@ app = new Vue({
 					this.cart.splice(i, 1);
 				}
 			}
-			console.log(this.cart);
 			localStorage.removeItem('cart');
 			localStorage.setObj('cart', this.cart);
 			// usun przedmiot z widoku

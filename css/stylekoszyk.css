@@ -85,4 +85,11 @@
     color: black;
     border: 1px solid orange;
     background-color: white;
+    transition-duration: 0.4s;
 }
+
+.btn-purchase:hover{
+    background-color: orange;
+}
+
+
