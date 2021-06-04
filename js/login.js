@@ -121,7 +121,7 @@ new Vue({
         login() {
             axios
                 .post(
-                    "http://localhost:8080/login",
+                    "https://mirbud-restapi.herokuapp.com/login",
                     this.user
                 )
                 .then(
@@ -148,7 +148,7 @@ new Vue({
         createSession() {
             axios
                 .post(
-                    "http://localhost:8080/api/clients/getRole",
+                    "https://mirbud-restapi.herokuapp.com/api/clients/getRole",
                      this.email
                 )
                 .then(
