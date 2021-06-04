@@ -39,7 +39,22 @@ app = new Vue({
 	},
 	methods: {
 		purchaseClicked : function(){
-			alert("Dziękujemy za złożenie zamówienia");
+			// make a post request
+			var jsonPostParams = {
+				"clientId": 0, 
+				// TODO when ClientID will be available
+				"itemsId": [],
+				"itemsQuantity": []
+			}
+
+			for(var i = 0; i < this.cart.length; i++){
+				jsonPostParams.itemsId.push(this.cart[i].item_id);
+				jsonPostParams.itemsQuantity.push(this.cart[i].item_count);
+			}
+
+			console.log(jsonPostParams);
+
+			axios.post('https://mirbud-restapi.herokuapp.com/api/orders', jsonPostParams);
 			localStorage.setObj('cart', []);
 			var cartItems = document.getElementsByClassName('cart-items')[0];
 			while (cartItems.hasChildNodes()) {

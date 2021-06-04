@@ -104,6 +104,10 @@
 			<input onclick="filter()" class="filtr_btn" type="submit" value="Filtruj" name="filter_btn">
 		</div>
 		<div class="item_bar">
+			<div class="loader_indicator">
+				<h4 class="center">Ładowanie przedmiotów...</h4>
+				<div class="loader center"></div>
+			</div>
 			<ul class="item_list" id="lista">
 				<displayed-item
 				v-for="item in viewedItems"

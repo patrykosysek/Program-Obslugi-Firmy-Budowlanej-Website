@@ -38,6 +38,7 @@ app = new Vue({
 					this.viewedItems.push(this.items[i]);
 				}
 				console.log(this.viewedItems);
+				document.getElementsByClassName('loader_indicator')[0].remove();
 			}
 			catch (err){
 				window.location.href = 'error.html?error=503';

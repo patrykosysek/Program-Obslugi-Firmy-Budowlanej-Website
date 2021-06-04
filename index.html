@@ -68,6 +68,10 @@
 		<img src="img/robol2.jpg" class="main_img">
 		<div class="recommended_items">
 			<h3>Polecane przedmioty</h3>
+			<div class="loader_indicator">
+				<h4 class="center">Ładowanie przedmiotów...</h4>
+				<div class="loader center"></div>
+			</div>
 			<ul>
 				<displayed-item
 					v-for="item in items" v-bind:key="item.item_id"

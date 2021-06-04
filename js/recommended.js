@@ -20,17 +20,14 @@ app = new Vue({
 		axios.get('https://mirbud-restapi.herokuapp.com/api/item/recommended/')
 		.then(response => {
 			this.items = response.data;
+			document.getElementsByClassName('loader_indicator')[0].remove();
 		})
 		.catch(error => {
 			window.location.href = 'error.html?error=503';
 		});
 	},
 	created() {
-		// // create new cart object if one doesnt exist
-		// if (localStorage.getObj('cart') == null){
-		// 	var cart = [];
-		// 	localStorage.setObj('cart', cart);
-		// }
+		// remove and create new cart ONLY FOR DEBUG PURPOSES
 		localStorage.removeItem('cart');
 		var cart = [];
 		localStorage.setObj('cart', cart);
