@@ -12,6 +12,9 @@
 	<!-- axios -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js" integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<!-- VueToast -->
+	<script src="https://cdn.jsdelivr.net/npm/vue-toast-notification"></script>
+	<link href="https://cdn.jsdelivr.net/npm/vue-toast-notification/dist/theme-sugar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -65,15 +68,20 @@
 		<img src="img/robol2.jpg" class="main_img">
 		<div class="recommended_items">
 			<h3>Polecane przedmioty</h3>
+			<div class="loader_indicator">
+				<h4 class="center">Ładowanie przedmiotów...</h4>
+				<div class="loader center"></div>
+			</div>
 			<ul>
-				<recommended-item
-					v-for="item in items"
+				<displayed-item
+					v-for="item in items" v-bind:key="item.item_id"
 					v-bind:class="'recommended_item ' + 'item' + item.id"
 					v-bind:item_photo_url="item.zdjecia"
 					v-bind:item_name="item.nazwa"
 					v-bind:item_price="item.cenaSprzedazy"
 					v-bind:item_rating="item.ocena"
-				></recommended-item>
+					v-bind:item_id="item.id"
+				></displayed-item>
 			</ul>
 		</div>
 	</div>
@@ -101,8 +109,10 @@
 			cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym
 			czasie zmiany ustawień dotyczących cookies.
 		</p>
-			<!-- Reccomended script -->
-	<script src="js/recommended.js"></script>
+			<!-- Recommended script -->
+			<script src="js/recommended.js"></script>
+			<!-- Item element component -->
+			<script src="js/item_component.js"></script>
 	</div>
 </body>
 

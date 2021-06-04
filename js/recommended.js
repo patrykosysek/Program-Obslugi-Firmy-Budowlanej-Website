@@ -1,3 +1,16 @@
+// Functions for easy array acces from localStorage
+
+Storage.prototype.setObj = function(key, obj) {
+    return this.setItem(key, JSON.stringify(obj))
+}
+Storage.prototype.getObj = function(key) {
+    return JSON.parse(this.getItem(key))
+}
+
+Vue.use(VueToast, {
+
+});
+
 app = new Vue({
 	el: '.main_body',
 	data: {
@@ -7,32 +20,16 @@ app = new Vue({
 		axios.get('https://mirbud-restapi.herokuapp.com/api/item/recommended/')
 		.then(response => {
 			this.items = response.data;
+			document.getElementsByClassName('loader_indicator')[0].remove();
 		})
 		.catch(error => {
 			window.location.href = 'error.html?error=503';
 		});
-	}
-})
-
-Vue.component('recommended-item', {
-
-	props: ['item_class', 'item_photo_url', 'item_name', 'item_price', 'item_rating'],
-	template: `
-				<li>
-					<div :class="item_class">
-						<img :src="item_photo_url" class="item_photo">
-						<h4 class="item_name">{{item_name}}</h4>
-						<h4 class="item_price">Cena za sztukę: {{item_price}}</h4>
-						<h4 class="item_rating">Ocena: {{item_rating}}</h4>
-						<button class="add_to_cart_button" onclick="">
-							<div class="add_to_cart_box">
-								<img src="img/add_to_cart.png" class="add_to_cart">
-								<p>
-									Dodaj do koszyka
-								</p>
-							</div>
-						</button>
-					</div>
-				</li>
-		`
+	},
+	created() {
+		// remove and create new cart ONLY FOR DEBUG PURPOSES
+		localStorage.removeItem('cart');
+		var cart = [];
+		localStorage.setObj('cart', cart);
+	},
 })

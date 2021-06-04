@@ -10,6 +10,9 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<!-- axios -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js" integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- VueToast -->
+	<script src="https://cdn.jsdelivr.net/npm/vue-toast-notification"></script>
+	<link href="https://cdn.jsdelivr.net/npm/vue-toast-notification/dist/theme-sugar.css" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="css/style_item_list.css">
 
@@ -70,37 +73,41 @@
 				<label for="category1"> Budowanie </label><br>
 			</span>
 			<span class="category_filter_element">
-				<input type="checkbox" id="ogr" name="category2" value="ogr">
+				<input type="checkbox" id="ogrod" name="category2" value="ogr">
 				<label for="category2"> Ogród i wypoczynek </label><br>
 			</span>
 
 			<span class="category_filter_element">
-				<input type="checkbox" id="tec" name="category3" value="tec">
+				<input type="checkbox" id="technika" name="category3" value="tec">
 				<label for="category3"> Technika </label><br>
 			</span>
 
 			<span class="category_filter_element">
-				<input type="checkbox" id="mie" name="category4" value="mie">
+				<input type="checkbox" id="meble" name="category4" value="mie">
 				<label for="category4"> Mieszkanie </label><br>
 			</span>
 
 			<span class="category_filter_element">
-				<input type="checkbox" id="kuc" name="category5" value="kuc">
+				<input type="checkbox" id="kuchnia" name="category5" value="kuc">
 				<label for="category5"> Kuchnia </label><br>
 			</span>
 
 			<span class="category_filter_element">
-				<input type="checkbox" id="laz" name="category6" value="laz">
+				<input type="checkbox" id="lazienka" name="category6" value="laz">
 				<label for="category6"> Łazienka </label><br>
 			</span>
 
 			<span class="category_filter_element">
-				<input type="checkbox" id="ele" name="category7" value="ele">
+				<input type="checkbox" id="elektrnika" name="category7" value="ele">
 				<label for="category7"> Elektronika </label><br><br>
 			</span>
 			<input onclick="filter()" class="filtr_btn" type="submit" value="Filtruj" name="filter_btn">
 		</div>
 		<div class="item_bar">
+			<div class="loader_indicator">
+				<h4 class="center">Ładowanie przedmiotów...</h4>
+				<div class="loader center"></div>
+			</div>
 			<ul class="item_list" id="lista">
 				<displayed-item
 				v-for="item in viewedItems"
@@ -143,7 +150,10 @@
 			czasie zmiany ustawień dotyczących cookies.
 		</p>
 	</div>
+	<!-- Item list instance -->
 	<script type="text/javascript" src="js/item_list.js"></script>
+	<!-- Displayed item component -->
+	<script type="text/javascript" src="js/item_component.js"></script>
 </body>
 
 </html>

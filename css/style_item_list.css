@@ -4,7 +4,7 @@
 
 .filter_bar{
 	float: left;
-	height: 700px;
+	height: 1000px;
 	background-color: #ffc342;
 	width: 20%;
 }
@@ -95,4 +95,25 @@
   
   .center {
 	text-align: center;
+  }
+
+.loader {
+	border: 16px solid #f3f3f3; /* Light grey */
+	border-top: 16px solid #3498db; /* Blue */
+	border-radius: 50%;
+	width: 110px;
+	height: 120px;
+	animation: spin 2s linear infinite;
+	overflow: hidden;
+  }
+  
+  @keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+  }
+
+  .center{
+	margin-left: auto;
+	margin-right: auto;
+	width: 120px;
   }
