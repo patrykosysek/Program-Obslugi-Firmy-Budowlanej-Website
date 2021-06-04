@@ -108,7 +108,8 @@ new Vue({
         },
         userData: {
           email: "",
-          role: 0
+          role: 0,
+          id: 0
         },
         completed: false,
     },
@@ -150,29 +151,37 @@ new Vue({
                 );
         },
         createSession() {
+          axios.all([
             axios
                 .post(
                     "https://mirbud-restapi.herokuapp.com/api/clients/getRole",
                      this.email
+                ),             
+            axios
+                .post(
+                  "https://mirbud-restapi.herokuapp.com/api/clients/getIdByEmail",
+                  this.email
                 )
+          ])
                 .then(
-                    (response) => {
-                        this.userData.role = response.data
+                    axios.spread((data1, data2) => {
+                        this.userData.role = data1.data
+                        this.userData.id = data2.data
                         sessionStorage.setItem("userData", JSON.stringify(this.userData))
-                        if(response.data == 3)
+                        if(data1.data == 3)
                         {
                         window.location.href = 'index.html';
                         }
-                        else if(response.data == 2)
+                        else if(data1.data == 2)
                         {
                           window.location.href = 'index.html';
                         }
-                        else if(response.data == 1)
+                        else if(data1.data == 1)
                         {
                           window.location.href = 'admin_panel.html';
                         }
                     }
-                )
+                ))
         }
     },
 });
