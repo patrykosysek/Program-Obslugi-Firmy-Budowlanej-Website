@@ -42,10 +42,11 @@ app = new Vue({
 			// make a post request
 			var jsonPostParams = {
 				"clientId": 0, 
-				// TODO when ClientID will be available
 				"itemsId": [],
 				"itemsQuantity": []
 			}
+			var userData = sessionStorage.getObj('userData');
+			//TODO jsonPostParams.clientId = userData.
 
 			for(var i = 0; i < this.cart.length; i++){
 				jsonPostParams.itemsId.push(this.cart[i].item_id);

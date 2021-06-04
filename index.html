@@ -26,11 +26,11 @@
 
 		<div class="nav_bar_cart_and_user">
 			<div class="user">
-				<h4>Witaj gościu!</h4>
+				<h4>Zalogowany użytkownik: {{user_name}}</h4>
 			</div>
 			<div class="cart_all">
 				<a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
-				<p class="item_number">Ilość przedmiotów w koszyku: </p>
+				<p class="item_number">Ilość przedmiotów w koszyku: {{no_of_items}}</p>
 			</div>
 			<a href="logowanie.html">
 				<button class="login_btn" type="button">
@@ -109,10 +109,10 @@
 			cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym
 			czasie zmiany ustawień dotyczących cookies.
 		</p>
-			<!-- Recommended script -->
-			<script src="js/recommended.js"></script>
 			<!-- Item element component -->
 			<script src="js/item_component.js"></script>
+			<!-- Recommended script -->
+			<script src="js/recommended.js"></script>
 	</div>
 </body>
 

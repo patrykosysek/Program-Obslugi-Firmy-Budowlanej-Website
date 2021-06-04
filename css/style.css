@@ -24,6 +24,15 @@
 	margin-right: 20px;
 }
 
+.cart {
+	transition-duration: 0.4s;
+  }
+  
+.cart:hover {
+	background-color: darkorange;
+	color: white;
+}
+
 
 .user{
 	text-align: left;
@@ -37,12 +46,11 @@
 
 .login_btn{
 	float: right;
-  	display: inline-block;
-  	border: none;
   	background: #f1f1f1;
   	padding: 5px 5px 5px 5px;
   	margin-right: 35px;
   	margin-top: 7px;
+	border: solid 1px black;
 }
 
 .search_bar{
@@ -61,7 +69,7 @@
 
 .search_bar input{
 	height: 40px;
-	width: 500px;
+	width: 400px;
 	text-align: left;
 	padding-left: 20px;
 	font-size: 20px;
