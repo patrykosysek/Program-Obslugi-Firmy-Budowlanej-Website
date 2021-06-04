@@ -106,6 +106,10 @@ new Vue({
         email: {
             email: ""
         },
+        userData: {
+          email: "",
+          role: 0
+        },
         completed: false,
     },
 
@@ -129,8 +133,8 @@ new Vue({
                         if (response.status == 200) {
                             alert("Udało się zalogować!");
                         }
-                        sessionStorage.setItem("email", this.user.username)
                         this.email.email = this.user.username
+                        this.userData.email = this.user.username
                         this.createSession();
                         this.completed = true;
 
@@ -153,8 +157,8 @@ new Vue({
                 )
                 .then(
                     (response) => {
-                        //this.role = response
-                        sessionStorage.setItem("rola", response.data)
+                        this.userData.role = response.data
+                        sessionStorage.setItem("userData", JSON.stringify(this.userData))
                         if(response.data == 3)
                         {
                         window.location.href = 'index.html';
