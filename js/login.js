@@ -155,6 +155,18 @@ new Vue({
                     (response) => {
                         //this.role = response
                         sessionStorage.setItem("rola", response.data)
+                        if(response.data == 3)
+                        {
+                        window.location.href = 'index.html';
+                        }
+                        else if(response.data == 2)
+                        {
+                          window.location.href = 'index.html';
+                        }
+                        else if(response.data == 1)
+                        {
+                          window.location.href = 'admin_panel.html';
+                        }
                     }
                 )
         }
