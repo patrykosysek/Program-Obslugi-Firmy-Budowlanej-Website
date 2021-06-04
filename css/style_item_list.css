@@ -44,6 +44,7 @@
 .item{
 	float: left;
 	margin-left: 15px;
+	margin-top: 10px;
 }
 
 .item_bar{
@@ -56,10 +57,42 @@
 }
 
 .item .add_to_cart{
-	width: 50px;
-	height: 50px;
+	width: 45px;
+	height: 35px;
 }
 
 .item_bar li{
 	list-style: none;
 }
+
+
+/* Pagination in item_list */
+  .pagination{
+	  display: inline-block;
+	  margin-left: auto;
+	  margin-right: auto;
+	  width: 200px;
+	  margin-top: 50px;
+	  margin-bottom: 50px;
+  }
+  
+  .pagination a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	border: 1px solid #ddd; /* Gray */
+  }
+  
+  .pagination a.active {
+	background-color: #4CAF50;
+	color: white;
+  }
+  
+  .pagination a:hover:not(.active) {
+	  background-color: #ddd;
+  }
+  
+  .center {
+	text-align: center;
+  }

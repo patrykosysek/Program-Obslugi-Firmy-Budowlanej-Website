@@ -24,7 +24,14 @@ Vue.component('recommended-item', {
 						<h4 class="item_name">{{item_name}}</h4>
 						<h4 class="item_price">Cena za sztukę: {{item_price}}</h4>
 						<h4 class="item_rating">Ocena: {{item_rating}}</h4>
-						<img src="img/add_to_cart.png" class="add_to_cart">
+						<button class="add_to_cart_button" onclick="">
+							<div class="add_to_cart_box">
+								<img src="img/add_to_cart.png" class="add_to_cart">
+								<p>
+									Dodaj do koszyka
+								</p>
+							</div>
+						</button>
 					</div>
 				</li>
 		`
