@@ -36,9 +36,12 @@
         v-model="dodaj_kategoria"
         required
       />
-      <button @click="addNewCategory" style="margin: 5px">Dodaj</button>
-      <button @click="deleteCategory" style="margin: 5px">Usuń</button>
       
+      <div style="display: flex;padding: 5px;">
+        <button @click="addNewCategory" class="registerbtnupdate">Dodaj</button>
+        <button @click="deleteCategory" class="registerbtnupdate">Usuń</button>
+      </div>
+
     </div>
     <script src="js/add_delete_category.js"></script>
   </body>

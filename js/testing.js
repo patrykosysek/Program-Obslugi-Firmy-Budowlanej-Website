@@ -13,7 +13,7 @@ new Vue({
       //localStorage.setItem("cos", JSON.stringify(temp));
 
       window.location.replace(
-        "D:/REPO/Program-Obslugi-Firmy-Budowlanej-Website/item_updating.html"
+        "item_updating.html"
       );
     },
   },

@@ -91,6 +91,8 @@
           {{kategoria.nazwaKategorii}}
         </span>
         <p></p>
+
+
         <label for="kategorie_przed"><b>Kategorie przedmiotu:</b></label>
         <span
           v-for="kategoria in przedmiot_kategorie"
@@ -109,14 +111,20 @@
           required
         />
         <div style="display: flex; padding: 5px">
-          <button @click="addCategory" style="margin: 5px">Dodaj</button>
-          <button @click="deleteCategory" style="margin: 5px">Usuń</button>
-          <button @click="addNewCategory" style="margin: 5px">Nowa</button>
+          <button @click="addCategory" class="registerbtnupdate">Dodaj</button>
+          <button @click="deleteCategory" class="registerbtnupdate">Usuń</button>
+          <button @click="addNewCategory" class="registerbtnupdate">Nowa</button>
         </div>
         <p></p>
-        <label for="zdjecia_przed"><b>Zdjecia przedmiotu:</b></label>
+        <div style="display: flex;">
+          <div v-for="zdjecie in przedmiot_zdjecia" :key="zdjecie" style="padding: 5px;">
+          <img :src=zdjecie class="item_photo" style="width: 80px; height: 80px; margin: 5px;">
+          </div>
+        </div>
+        <p></p>
+        <label for="zdjecia_przed"><b>Zdjecia przedmiotu:</b></label> <br>
         <span v-for="zdjecie in przedmiot_zdjecia" :key="zdjecie.id">
-          {{zdjecie}}
+          {{zdjecie}} <br>
         </span>
         <p></p>
         <label for="zdjecia"><b>Zdjęcia</b></label>
@@ -129,15 +137,15 @@
           required
         />
         <div style="display: flex; padding: 5px">
-          <button @click="addImage" style="margin: 5px">Dodaj</button>
-          <button @click="deleteImage" style="margin: 5px">Usuń</button>
+          <button @click="addImage" class="registerbtnupdate">Dodaj</button>
+          <button @click="deleteImage" class="registerbtnupdate">Usuń</button>
         </div>
         <p></p>
         <label for="materialy_przed"
-          ><b>Materiały elektroniczne przedmiotu:</b></label
-        >
+          ><b>Materiały elektroniczne przedmiotu:</b></label 
+        > <br>
         <span v-for="material in przedmiot_materialy" :key="material.id">
-          {{material}}
+          {{material}} <br>
         </span>
         <p></p>
         <label for="materialyElektroniczne"
@@ -152,8 +160,8 @@
           required
         />
         <div style="display: flex; padding: 5px">
-          <button @click="addMaterial" style="margin: 5px">Dodaj</button>
-          <button @click="deleteMaterial" style="margin: 5px">Usuń</button>
+          <button @click="addMaterial" class="registerbtnupdate">Dodaj</button>
+          <button @click="deleteMaterial" class="registerbtnupdate">Usuń</button>
         </div>
         <p></p>
         <hr />
