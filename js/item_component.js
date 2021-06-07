@@ -60,7 +60,7 @@ Vue.component('displayed-item', {
 				<li>
 				<div :class="item_class">
 					<img :src="item_photo_url" class="item_photo">
-					<h4 class="item_name">{{item_name}}</h4>
+					<a :href="'item_detail.html' + '?itemId=' + item_id" target="_blank"><h4 class="item_name">{{item_name}}</h4></a>
 					<h4 class="item_price">Cena za sztukę: {{item_price}}</h4>
 					<h4 class="item_rating">Ocena: {{item_rating}}</h4>
 					<button class="add_to_cart_button"  v-on:click="addToCart(item_id, item_name, item_photo_url, item_price, item_rating)">
