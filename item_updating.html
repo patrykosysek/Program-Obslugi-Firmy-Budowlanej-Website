@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vue-toast-notification/dist/theme-sugar.css"
+      rel="stylesheet"
+    />
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- jQuery -->
@@ -16,6 +20,8 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- VueToast -->
+    <script src="https://cdn.jsdelivr.net/npm/vue-toast-notification"></script>
     <title>Modyfing</title>
   </head>
   <body>
@@ -92,7 +98,6 @@
         </span>
         <p></p>
 
-
         <label for="kategorie_przed"><b>Kategorie przedmiotu:</b></label>
         <span
           v-for="kategoria in przedmiot_kategorie"
@@ -112,19 +117,31 @@
         />
         <div style="display: flex; padding: 5px">
           <button @click="addCategory" class="registerbtnupdate">Dodaj</button>
-          <button @click="deleteCategory" class="registerbtnupdate">Usuń</button>
-          <button @click="addNewCategory" class="registerbtnupdate">Nowa</button>
+          <button @click="deleteCategory" class="registerbtnupdate">
+            Usuń
+          </button>
+          <button @click="addNewCategory" class="registerbtnupdate">
+            Nowa
+          </button>
         </div>
         <p></p>
-        <div style="display: flex;">
-          <div v-for="zdjecie in przedmiot_zdjecia" :key="zdjecie" style="padding: 5px;">
-          <img :src=zdjecie class="item_photo" style="width: 80px; height: 80px; margin: 5px;">
+        <div style="display: flex">
+          <div
+            v-for="zdjecie in przedmiot_zdjecia"
+            :key="zdjecie"
+            style="padding: 5px"
+          >
+            <img
+              :src="zdjecie"
+              class="item_photo"
+              style="width: 80px; height: 80px; margin: 5px"
+            />
           </div>
         </div>
         <p></p>
-        <label for="zdjecia_przed"><b>Zdjecia przedmiotu:</b></label> <br>
+        <label for="zdjecia_przed"><b>Zdjecia przedmiotu:</b></label> <br />
         <span v-for="zdjecie in przedmiot_zdjecia" :key="zdjecie.id">
-          {{zdjecie}} <br>
+          {{zdjecie}} <br />
         </span>
         <p></p>
         <label for="zdjecia"><b>Zdjęcia</b></label>
@@ -142,10 +159,11 @@
         </div>
         <p></p>
         <label for="materialy_przed"
-          ><b>Materiały elektroniczne przedmiotu:</b></label 
-        > <br>
+          ><b>Materiały elektroniczne przedmiotu:</b></label
+        >
+        <br />
         <span v-for="material in przedmiot_materialy" :key="material.id">
-          {{material}} <br>
+          {{material}} <br />
         </span>
         <p></p>
         <label for="materialyElektroniczne"
@@ -161,7 +179,9 @@
         />
         <div style="display: flex; padding: 5px">
           <button @click="addMaterial" class="registerbtnupdate">Dodaj</button>
-          <button @click="deleteMaterial" class="registerbtnupdate">Usuń</button>
+          <button @click="deleteMaterial" class="registerbtnupdate">
+            Usuń
+          </button>
         </div>
         <p></p>
         <hr />

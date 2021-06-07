@@ -1,3 +1,5 @@
+Vue.use(VueToast, {});
+
 new Vue({
   el: "#app",
 
@@ -25,7 +27,6 @@ new Vue({
   },
 
   mounted() {
-
     axios
       .get("https://mirbud-restapi.herokuapp.com/api/categories/getAll")
       .then(
@@ -34,15 +35,24 @@ new Vue({
         },
         (error) => {
           if (error.response.data.message != null) {
-            alert(error.response.data.message);
-          } else alert(error.response.data);
+            this.$toast.open({
+              message: error.response.data.message,
+              type: "error",
+              duration: 5000,
+              dismissible: true,
+            });
+          } else
+            this.$toast.open({
+              message: error.response.data,
+              type: "error",
+              duration: 5000,
+              dismissible: true,
+            });
         }
       );
-
   },
   watch: {
     completed() {
-
       this.item.cenaSprzedazy = 0;
       this.item.cenaZakupu = 0;
       this.item.czyArchiwalny = false;
@@ -62,27 +72,25 @@ new Vue({
   },
 
   methods: {
-
     addCategory() {
-
       if (this.dostepne_kategorie.indexOf(this.dodaj_kategoria) == -1) {
-        alert("Podaj prawidłową kategorię!");
+        this.$toast.open({
+          message: "Podaj prawidłową kategorię!",
+          type: "success",
+          duration: 5000,
+          dismissible: true,
+        });
         this.dodaj_kategoria = "";
-      }
-      else {
+      } else {
         this.przedmiot_kategorie.push(this.dodaj_kategoria);
         this.dodaj_kategoria = "";
       }
-
     },
     deleteCategory() {
-
-      const index = this.przedmiot_kategorie.indexOf(this.dodaj_kategoria
-      );
+      const index = this.przedmiot_kategorie.indexOf(this.dodaj_kategoria);
 
       this.przedmiot_kategorie.splice(index, 1);
       this.dodaj_kategoria = "";
-
     },
     addNewCategory() {
       axios
@@ -93,7 +101,12 @@ new Vue({
         })
         .then(
           (response) => {
-            alert("Pomyślnie dodano nową kategorię");
+            this.$toast.open({
+              message: "Pomyślnie dodano nową kategorię",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
             this.dostepne_kategorie.push({
               id: 0,
               kategoriaPrzedmiotyId: [0],
@@ -104,65 +117,85 @@ new Vue({
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
     addImage() {
-
-
       this.przedmiot_zdjecia.push(this.dodaj_zdjecie);
       this.dodaj_zdjecie = "";
-
     },
     deleteImage() {
-
       const index = this.przedmiot_zdjecia.indexOf(this.dodaj_zdjecie);
       this.przedmiot_zdjecia.splice(index, 1);
       this.dodaj_zdjecie = "";
-
     },
     addMaterial() {
-
       this.przedmiot_materialy.push(this.dodaj_material);
       this.dodaj_material = "";
-
     },
     deleteMaterial() {
-
       const index = this.przedmiot_materialy.indexOf(this.dodaj_material);
       this.przedmiot_materialy.splice(index, 1);
       this.dodaj_material = "";
-
-
-
     },
     addItem() {
-
       if (this.item.cenaSprzedazy == 0 || this.item.cenaZakupu == 0) {
-        alert("Podaj prawidłową cenę zakupu i sprzedaży");
-      }
-      else {
+        this.$toast.open({
+          message: "Podaj prawidłową cenę zakupu i sprzedaży",
+          type: "error",
+          duration: 5000,
+          dismissible: true,
+        });
+      } else {
         this.item.iloscNaMagazynie = parseInt(this.item.iloscNaMagazynie);
         this.item.cenaSprzedazy = parseInt(this.item.cenaSprzedazy);
         this.item.kategoriaId = this.przedmiot_kategorie;
         this.item.materialyElektroniczne = this.przedmiot_materialy;
         this.item.zdjecia = this.przedmiot_zdjecia;
 
-        axios.post("https://mirbud-restapi.herokuapp.com/api/item", this.item).then(
-          (response) => {
-            alert("Pomyślnie dodano przedmiot");
-            this.completed = true;
-          },
-          (error) => {
-            if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
-          }
-        );
+        axios
+          .post("https://mirbud-restapi.herokuapp.com/api/item", this.item)
+          .then(
+            (response) => {
+              this.$toast.open({
+                message: "Pomyślnie dodano przedmiot",
+                type: "success",
+                duration: 5000,
+                dismissible: true,
+              });
+              this.completed = true;
+            },
+            (error) => {
+              if (error.response.data.message != null) {
+                this.$toast.open({
+                  message: error.response.data.message,
+                  type: "error",
+                  duration: 5000,
+                  dismissible: true,
+                });
+              } else
+                this.$toast.open({
+                  message: error.response.data,
+                  type: "error",
+                  duration: 5000,
+                  dismissible: true,
+                });
+            }
+          );
       }
-
     },
   },
 });
