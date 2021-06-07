@@ -44,65 +44,37 @@
 	<div class="categories_bar">
 		<ul>
 			<li>
-				<a href="item_list.html?category=budowanie">Budowanie</a>
+				<a href="item_list.html?category=Budowanie">Budowanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=ogrod">Ogród i wypoczynek</a>
+				<a href="item_list.html?category=Ogród">Ogród i wypoczynek</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=technika">Technika</a>
+				<a href="item_list.html?category=Technika">Technika</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=meble">Mieszkanie</a>
+				<a href="item_list.html?category=Mieszkanie">Mieszkanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=kuchnia">Kuchnia</a>
+				<a href="item_list.html?category=Kuchnia">Kuchnia</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=lazienka">Łazienka</a>
+				<a href="item_list.html?category=Lazienka">Lazienka</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=elektronika">Elektronika</a>
+				<a href="item_list.html?category=Elektronika">Elektronika</a>
 			</li>
 		</ul>
 	</div>
 	<div class="main_body">
-		<div class="filter_bar">
-			<span class="category_filter_element">
-				<input type="checkbox" id="budowanie" name="category1" value="bud">
-				<label for="category1"> Budowanie </label><br>
-			</span>
-			<span class="category_filter_element">
-				<input type="checkbox" id="ogrod" name="category2" value="ogr">
-				<label for="category2"> Ogród i wypoczynek </label><br>
-			</span>
-
-			<span class="category_filter_element">
-				<input type="checkbox" id="technika" name="category3" value="tec">
-				<label for="category3"> Technika </label><br>
-			</span>
-
-			<span class="category_filter_element">
-				<input type="checkbox" id="meble" name="category4" value="mie">
-				<label for="category4"> Mieszkanie </label><br>
-			</span>
-
-			<span class="category_filter_element">
-				<input type="checkbox" id="kuchnia" name="category5" value="kuc">
-				<label for="category5"> Kuchnia </label><br>
-			</span>
-
-			<span class="category_filter_element">
-				<input type="checkbox" id="lazienka" name="category6" value="laz">
-				<label for="category6"> Łazienka </label><br>
-			</span>
-
-			<span class="category_filter_element">
-				<input type="checkbox" id="elektrnika" name="category7" value="ele">
-				<label for="category7"> Elektronika </label><br><br>
-			</span>
-			<input onclick="filter()" class="filtr_btn" type="submit" value="Filtruj" name="filter_btn">
-		</div>
+		<ul class="filter_bar">
+			<category-checkbox
+			v-for="category in categories"
+			v-bind:category="category.nazwaKategorii"
+			v-bind:category_id="category.id"
+			></category-checkbox>
+			<input @click="filter" class="filtr_btn" type="submit" value="Filtruj" name="filter_btn">
+		</ul>
 		<div class="item_bar">
 			<div class="loader_indicator">
 				<h4 class="center">Ładowanie przedmiotów...</h4>
@@ -154,6 +126,8 @@
 	<script type="text/javascript" src="js/item_list.js"></script>
 	<!-- Displayed item component -->
 	<script type="text/javascript" src="js/item_component.js"></script>
+	<!-- Category Checkbox -->
+	<script type="text/javascript" src="js/category_checkbox_component.js"></script>
 </body>
 
 </html>

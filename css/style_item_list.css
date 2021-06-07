@@ -6,7 +6,9 @@
 	float: left;
 	height: 1000px;
 	background-color: #ffc342;
-	width: 20%;
+	width: 15%;
+	list-style: none;
+	list-style-type: none;
 }
 
 .item_bar{
@@ -35,8 +37,14 @@
   	border: solid 2px;
   	border-style: all;
   	cursor: pointer;
-  	width: 25%;
-  	margin-left: 32%;
+  	width: 40%;
+  	margin-left: 20%;
+	margin-top: 30px;
+	transition-duration: 0.4s;
+}
+
+.filtr_btn:hover{
+	background-color: rgb(226, 137, 3);
 }
 
 /* Main body index */
