@@ -18,7 +18,7 @@ app = new Vue({
 		const categoriesParam = urlParams.get('category');
 
 		this.categoryQueryString = categoriesParam;
-		var queryURL = 'https://mirbud-restapi.herokuapp.com/api/item/categories/' + this.categoryQueryString;
+		var queryURL = 'https://mirbud-restapi.herokuapp.com/api/item/categories/active' + this.categoryQueryString;
 
 		var data;
 		// get data from API

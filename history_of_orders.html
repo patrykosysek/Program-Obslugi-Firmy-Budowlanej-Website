@@ -1,150 +1,102 @@
 <!doctype HTML>
+
 <head>
-	<meta charset="utf-8">
-	<title>Sklep Budowlany MirBud</title>
-	
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/stylehistoria.css">
+    <meta charset="utf-8">
+    <title>Sklep Budowlany MirBud</title>
 
-	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/stylehistoria.css">
 
-	<link rel="stylesheet" type="text/css" href="css/style_item_list.css">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style_item_list.css">
 
-	<script type="text/javascript" src="js/item_list.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script type="text/javascript" src="js/item_list.js"></script>
 </head>
+
 <body>
-	<div class="nav_bar">
-		<a href="index.html"><img src="img/logo_small.png" class="logo"></a>
-		<form class="search_bar">
-			<input type="text" id="fsearch" name="fsearch" placeholder="Wpisz szukany przedmiot...">
-		</form>
+    <div class="nav_bar">
+        <a href="index.html"><img src="img/logo_small.png" class="logo"></a>
+        <form class="search_bar">
+            <input type="text" id="fsearch" name="fsearch" placeholder="Wpisz szukany przedmiot...">
+        </form>
 
-		<div class="nav_bar_cart_and_user">
-			<div class="user">
-				<h4>Witaj gościu!</h4>
-			</div>
-			<div class="cart_all">
-				<a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
-				<p class="item_number">Ilość przedmiotów w koszyku: </p>
-			</div>
-			<a href="logowanie.html">
-				<button class="login_btn" type="button">
-					Zaloguj/Zarejestruj się
-				</button>
-			</a>
-		</div>
-	</div>
-	<div class="categories_bar">
-		<ul>
-			<li>
-				<a href="item_list.html?category=bud">Budowanie</a>
-			</li>
-			<li>
-				<a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
-			</li>
-			<li>
-				<a href="item_list.html?category=tec">Technika</a>
-			</li>
-			<li>
-				<a href="item_list.html?category=mie">Mieszkanie</a>
-			</li>
-			<li>
-				<a href="item_list.html?category=kuc">Kuchnia</a>
-			</li>
-			<li>
-				<a href="item_list.html?category=laz">Łazienka</a>
-			</li>
-			<li>
-				<a href="item_list.html?category=ele">Elektronika</a>
-			</li>
-		</ul>
-	</div>
-
-
-
-        <div class="panel-heading">
-            <strong>Historia zakupów</strong>
+        <div class="nav_bar_cart_and_user">
+            <div class="user">
+                <h4>Witaj gościu!</h4>
+            </div>
+            <div class="cart_all">
+                <a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
+                <p class="item_number">Ilość przedmiotów w koszyku: </p>
+            </div>
+            <a href="logowanie.html">
+                <button class="login_btn" type="button">
+                    Zaloguj/Zarejestruj się
+                </button>
+            </a>
         </div>
-        <div class="panel-body">
-                <div class="row">
-                <div class="col-md-1"><img src="img/cegla1.jpg" class="media-object img-thumbnail" /></div>
-                <div class="col-md-11">
-                    <div class="row-text">
-                        <div class="col-md-12">
-                            <div class="pull-right"><label class="label label-success">W trakcie realizacji</label></div>
-                            <span><strong>Numer zamówienia</strong></span><span> 123 </span> <br />
-                            Ilość : 402, Cena: 9923.99 zł<br />
-                        </div>
-                        <div class="col-md-12">Data dokonania zamówienia: 06/20/2014</div>
-                    </div>
-                </div>
+    </div>
+    <div class="categories_bar">
+        <ul>
+            <li>
+                <a href="item_list.html?category=bud">Budowanie</a>
+            </li>
+            <li>
+                <a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
+            </li>
+            <li>
+                <a href="item_list.html?category=tec">Technika</a>
+            </li>
+            <li>
+                <a href="item_list.html?category=mie">Mieszkanie</a>
+            </li>
+            <li>
+                <a href="item_list.html?category=kuc">Kuchnia</a>
+            </li>
+            <li>
+                <a href="item_list.html?category=laz">Łazienka</a>
+            </li>
+            <li>
+                <a href="item_list.html?category=ele">Elektronika</a>
+            </li>
+        </ul>
+    </div>
+    <ul class="list_of_orders">
+        <li>
+            <div class="order_details">
+                <h1>Numer zamówienia: {{nr}}</h1>
+                <h6>Data zamówienia: {{data_zamowienia}}</h6>
+                <h2>Lista przedmiotów zamówienia:</h2>
+                <h4 class="done_string">Zrealizowane</h4>
+                <h3>Suma całkowita: {{wartosc_zamowienia}}</h4>
             </div>
-
-              <div class="row">
-                <div class="col-md-1"><img src="img/cegla2.jpg" class="media-object img-thumbnail" /></div>
-                <div class="col-md-11">
-                    <div class="row-text">
-                        <div class="col-md-12">
-                            <div class="pull-right"><label class="label label-success">Zakończone</label></div>
-                            <span><strong>Numer zamówienia</strong></span><span> 345 </span> <br />
-                            Ilość : 1, Cena: 19.90 zł<br />
-                        </div>
-                        <div class="col-md-12">Data dokonania zamówienia: 06/20/2014</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-1"><img src="img/cegla3.jpg" class="media-object img-thumbnail" /></div>
-                <div class="col-md-11">
-                    <div class="row-text">
-                        <div class="col-md-12">
-                            <div class="pull-right"><label class="label label-success">Zakończone</label></div>
-                            <span><strong>Numer zamówienia</strong></span><span> 567 </span> <br />
-                            Ilość : 200, Cena: 5023.13 zł<br />
-                        </div>
-                        <div class="col-md-12">Data dokonania zamówienia: 06/20/2014</div>
-                    </div>
-                </div>
-            </div>
-
-    <div class="row">
-                <div class="col-md-1"><img src="img/cegla3.jpg" class="media-object img-thumbnail" /></div>
-                <div class="col-md-11">
-                    <div class="row-text">
-                        <div class="col-md-12">
-                            <div class="pull-right"><label class="label label-success">Zakończone</label></div>
-                            <span><strong>Numer zamówienia</strong></span><span> 678 </span> <br />
-                            Ilość : 8, Cena: 129.12 zł<br />
-                        </div>
-                        <div class="col-md-12">Data dokonania zamówienia: 06/20/2014</div>
-                    </div>
-                </div>
-            </div>
-
-
-
-		<div class="footer">
-		<div class="contact">
-			<p class="contact_element">
-				     Tel: <br>
-        <b>123-456-789</b>
-      </p>
-      <p class="contact_element">
-        E-mail:<br>
-        <b>tab@Mirbud.pl</b>
-      </p>
-      <p class="contact_element">
-        Adres:<br>
-        <b>Abc 12<br></b>
-        <b>12-345, ABC<br></b>
-        <b>Polska</b>  	
-			</p>
-		</div>
-		<p class="cookies_info">
-			W ramach naszej witryny stosujemy pliki cookies w celu świadczenia Państwu usług na najwyższym poziomie, w tym w sposób dostosowany do indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień dotyczących cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym czasie zmiany ustawień dotyczących cookies.
-		</p>
-	</div>
+        </li>
+    </ul>
+    <div class="footer">
+        <div class="contact">
+            <p class="contact_element">
+                Tel: <br>
+                <b>123-456-789</b>
+            </p>
+            <p class="contact_element">
+                E-mail:<br>
+                <b>tab@Mirbud.pl</b>
+            </p>
+            <p class="contact_element">
+                Adres:<br>
+                <b>Abc 12<br></b>
+                <b>12-345, ABC<br></b>
+                <b>Polska</b>
+            </p>
+        </div>
+        <p class="cookies_info">
+            W ramach naszej witryny stosujemy pliki cookies w celu świadczenia Państwu usług na najwyższym poziomie, w
+            tym w sposób dostosowany do indywidualnych potrzeb. Korzystanie z witryny bez zmiany ustawień dotyczących
+            cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym
+            czasie zmiany ustawień dotyczących cookies.
+        </p>
+    </div>
 </body>
