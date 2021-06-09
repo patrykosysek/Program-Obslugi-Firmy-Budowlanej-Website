@@ -188,6 +188,16 @@
 	width: 120px;
   }
 
+  a {
+	  color: coral;
+	  text-decoration: none;
+  }
+
+  a:hover{
+	  color: orange;
+	  text-decoration: underline;
+  }
+
 /* Footer */
 
 .footer{
