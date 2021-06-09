@@ -1,3 +1,5 @@
+Vue.use(VueToast, {});
+
 new Vue({
   el: "#app",
 
@@ -50,8 +52,19 @@ new Vue({
             },
             (error) => {
               if (error.response.data.message != null) {
-                alert(error.response.data.message);
-              } else alert(error.response.data);
+                this.$toast.open({
+                  message: error.response.data.message,
+                  type: "error",
+                  duration: 5000,
+                  dismissible: true,
+                });
+              } else
+                this.$toast.open({
+                  message: error.response.data,
+                  type: "error",
+                  duration: 5000,
+                  dismissible: true,
+                });
             }
           );
       });
@@ -72,10 +85,20 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Modyfikacja przebiegła pomyślnie");
+            this.$toast.open({
+              message: "Modyfikacja przebiegła pomyślnie",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
           },
           (error) => {
-            alert("Wypełnij prawidłowo wszystkie pola!");
+            this.$toast.open({
+              message: "Wypełnij prawidłowo wszystkie pola!",
+              type: "warning",
+              duration: 5000,
+              dismissible: true,
+            });
           }
         );
     },
@@ -91,15 +114,31 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Pomyślnie dodano kategorię");
+            this.$toast.open({
+              message: "Pomyślnie dodano kategorię",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
 
             this.przedmiot_kategorie.push(this.dodaj_kategoria);
             this.dodaj_kategoria = "";
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
@@ -112,7 +151,12 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Pomyślnie usunięto kategorię");
+            this.$toast.open({
+              message: "Pomyślnie usunięto kategorię",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
             const index = this.przedmiot_kategorie.indexOf(
               this.dodaj_kategoria
             );
@@ -121,8 +165,19 @@ new Vue({
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
@@ -135,7 +190,12 @@ new Vue({
         })
         .then(
           (response) => {
-            alert("Pomyślnie dodano nową kategorię");
+            this.$toast.open({
+              message: "Pomyślnie dodano nową kategorię",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
             this.dostepne_kategorie.push({
               id: 0,
               kategoriaPrzedmiotyId: [0],
@@ -146,8 +206,19 @@ new Vue({
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
@@ -164,15 +235,31 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Pomyślnie dodano zdjęcie");
+            this.$toast.open({
+              message: "Pomyślnie dodano zdjęcie",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
 
             this.przedmiot_zdjecia.push(this.dodaj_zdjecie);
             this.dodaj_zdjecie = "";
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
@@ -185,15 +272,31 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Pomyślnie usunięto zdjęcie");
+            this.$toast.open({
+              message: "Pomyślnie usunięto zdjęcie",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
             const index = this.przedmiot_zdjecia.indexOf(this.dodaj_zdjecie);
             this.przedmiot_zdjecia.splice(index, 1);
             this.dodaj_zdjecie = "";
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
@@ -210,15 +313,30 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Pomyślnie dodano materiał elektroniczny");
-
+            this.$toast.open({
+              message: "Pomyślnie dodano materiał elektroniczny",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
             this.przedmiot_materialy.push(this.dodaj_material);
             this.dodaj_material = "";
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
@@ -231,22 +349,36 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Pomyślnie usunięto materiał elektroniczny");
+            this.$toast.open({
+              message: "Pomyślnie usunięto materiał elektroniczny",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
             const index = this.przedmiot_materialy.indexOf(this.dodaj_material);
             this.przedmiot_materialy.splice(index, 1);
             this.dodaj_material = "";
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
     goBack() {
-      window.location.replace(
-        "testing.html"
-      );
+      window.location.replace("testing.html");
     },
   },
 });

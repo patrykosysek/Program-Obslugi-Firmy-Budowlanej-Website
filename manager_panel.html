@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/vue-toast-notification/dist/theme-sugar.css" rel="stylesheet">
     <!-- Vue.js -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- jQuery -->
@@ -33,10 +32,8 @@
           </a>
         </div>
       </div>
-      <button @click="register" class="adminbtns">
-        Zarejestruj użytkownika
-      </button>
-      <button @click="delete_user" class="adminbtns">Usuń użytkownika</button>
+
+      <button @click="generate_raport" class="adminbtns">Generuj raport</button>
       <button @click="add_category" class="adminbtns">
         Dodaj/Usuń kategorię
       </button>
@@ -50,11 +47,11 @@
         id="frame"
         title="Admin functionality"
         width="100%"
-        height="500px"
+        height="550px"
         src="rejestracja_Admin.html"
       >
       </iframe>
     </div>
-    <script src="js/admin_panel.js"></script>
+    <script src="js/manager_panel.js"></script>
   </body>
 </html>
