@@ -27,7 +27,7 @@
   <body>
     <div id="app">
       <div class="container">
-        <h1>Przedmiot ID: {{item.id}}</h1>
+        <h1>Dodaj przedmiot</h1>
 
         <hr />
         <label for="nazwa"><b>Nazwa</b></label>
@@ -62,6 +62,18 @@
         />
         zł
         <p></p>
+        <label for="cenaKupna"><b>Cena zakupu</b></label>
+        <input
+          class="reg_log_input"
+          type="number"
+          placeholder="Cena zakupu"
+          name="item.cenaZakupu"
+          id="cenaKupna"
+          v-model="item.cenaZakupu"
+          required
+        />
+        zł
+        <p></p>
         <label for="iloscNaMagazynie"><b>Ilość na magazynie</b></label>
         <input
           class="reg_log_input"
@@ -84,9 +96,6 @@
           required
         />
         <p></p>
-        <div style="display: flex">
-          <button @click="update" class="registerbtnupdate">Zapisz</button>
-        </div>
 
         <p></p>
         <label for="dost_kategorie"><b>Dostępne kategorie:</b></label>
@@ -97,7 +106,6 @@
           {{kategoria.nazwaKategorii}}
         </span>
         <p></p>
-
         <label for="kategorie_przed"><b>Kategorie przedmiotu:</b></label>
         <span
           v-for="kategoria in przedmiot_kategorie"
@@ -125,23 +133,9 @@
           </button>
         </div>
         <p></p>
-        <div style="display: flex">
-          <div
-            v-for="zdjecie in przedmiot_zdjecia"
-            :key="zdjecie"
-            style="padding: 5px"
-          >
-            <img
-              :src="zdjecie"
-              class="item_photo"
-              style="width: 80px; height: 80px; margin: 5px"
-            />
-          </div>
-        </div>
-        <p></p>
-        <label for="zdjecia_przed"><b>Zdjecia przedmiotu:</b></label> <br />
+        <label for="zdjecia_przed"><b>Zdjecia przedmiotu:</b></label>
         <span v-for="zdjecie in przedmiot_zdjecia" :key="zdjecie.id">
-          {{zdjecie}} <br />
+          {{zdjecie}}
         </span>
         <p></p>
         <label for="zdjecia"><b>Zdjęcia</b></label>
@@ -161,9 +155,8 @@
         <label for="materialy_przed"
           ><b>Materiały elektroniczne przedmiotu:</b></label
         >
-        <br />
         <span v-for="material in przedmiot_materialy" :key="material.id">
-          {{material}} <br />
+          {{material}}
         </span>
         <p></p>
         <label for="materialyElektroniczne"
@@ -185,10 +178,10 @@
         </div>
         <p></p>
         <hr />
-        <button @click="goBack" class="registerbtn">Wstecz</button>
+        <button @click="addItem" class="registerbtn">Dodaj</button>
       </div>
     </div>
 
-    <script src="js/modyfing.js"></script>
+    <script src="js/adding_item.js"></script>
   </body>
 </html>

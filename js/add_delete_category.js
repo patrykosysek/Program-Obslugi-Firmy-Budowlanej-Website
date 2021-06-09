@@ -1,3 +1,5 @@
+Vue.use(VueToast, {});
+
 new Vue({
   el: "#app",
   data: {
@@ -14,8 +16,19 @@ new Vue({
         },
         (error) => {
           if (error.response.data.message != null) {
-            alert(error.response.data.message);
-          } else alert(error.response.data);
+            this.$toast.open({
+              message: error.response.data.message,
+              type: "error",
+              duration: 5000,
+              dismissible: true,
+            });
+          } else
+            this.$toast.open({
+              message: error.response.data,
+              type: "error",
+              duration: 5000,
+              dismissible: true,
+            });
         }
       );
   },
@@ -29,7 +42,12 @@ new Vue({
         })
         .then(
           (response) => {
-            alert("Pomyślnie dodano nową kategorię");
+            this.$toast.open({
+              message: "Pomyślnie dodano nową kategorię",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
             this.dostepne_kategorie.push({
               id: 0,
               kategoriaPrzedmiotyId: [0],
@@ -40,8 +58,19 @@ new Vue({
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },
@@ -52,7 +81,12 @@ new Vue({
         )
         .then(
           (response) => {
-            alert("Pomyślnie usunięto kategorię");
+            this.$toast.open({
+              message: "Pomyślnie usunięto kategorię",
+              type: "success",
+              duration: 5000,
+              dismissible: true,
+            });
 
             const index = this.dostepne_kategorie.findIndex(
               (item) => item.nazwaKategorii == this.dodaj_kategoria
@@ -62,8 +96,19 @@ new Vue({
           },
           (error) => {
             if (error.response.data.message != null) {
-              alert(error.response.data.message);
-            } else alert(error.response.data);
+              this.$toast.open({
+                message: error.response.data.message,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
+            } else
+              this.$toast.open({
+                message: error.response.data,
+                type: "error",
+                duration: 5000,
+                dismissible: true,
+              });
           }
         );
     },

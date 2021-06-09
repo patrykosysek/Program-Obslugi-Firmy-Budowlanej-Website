@@ -268,6 +268,7 @@ input.reg_log_input[type=text]:focus, input[type=password]:focus {
 	background-color: orange;
 	color: white;
 	padding: 16px 20px;
+	margin: 5px;
 	text-align: center;
 	float: left;
 	border: none;
