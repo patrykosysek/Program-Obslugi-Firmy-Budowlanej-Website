@@ -5,6 +5,10 @@
 	font-family: Verdana;
 }
 
+body{
+	margin: 0px;
+}
+
 .nav_bar{
 	overflow: auto;
 	background-color: orange;
@@ -192,6 +196,7 @@
 	  color: coral;
 	  text-decoration: none;
   }
+
 
   a:hover{
 	  color: orange;

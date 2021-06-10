@@ -4,17 +4,20 @@
     <meta charset="utf-8">
     <title>Sklep Budowlany MirBud</title>
 
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/stylehistoria.css">
-
-    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
     <link rel="stylesheet" type="text/css" href="css/style_item_list.css">
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
-    <script type="text/javascript" src="js/item_list.js"></script>
+    <!-- Vue.js -->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<!-- axios -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.js" integrity="sha512-otOZr2EcknK9a5aa3BbMR9XOjYKtxxscwyRHN6zmdXuRfJ5uApkHB7cz1laWk2g8RKLzV9qv/fl3RPwfCuoxHQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<!-- VueToast -->
+	<script src="https://cdn.jsdelivr.net/npm/vue-toast-notification"></script>
+	<link href="https://cdn.jsdelivr.net/npm/vue-toast-notification/dist/theme-sugar.css" rel="stylesheet">
 </head>
 
 <body>
@@ -64,13 +67,25 @@
             </li>
         </ul>
     </div>
+    <h1 class="title">Historia zamówień</h1>
+    <h2 class="no_orders_text">Nie posiadasz jeszcze żadnych zamówień :(</h2>
     <ul class="list_of_orders">
         <li>
             <div class="order_details">
-                <h1>Numer zamówienia: {{nr}}</h1>
+                <h2>Numer zamówienia: {{nr}}</h2>
                 <h6>Data zamówienia: {{data_zamowienia}}</h6>
+                <h4 class="done_string">Stan zamówienia: {{Zrealizowane}}</h4>
                 <h2>Lista przedmiotów zamówienia:</h2>
-                <h4 class="done_string">Zrealizowane</h4>
+                <ul class="list_of_items_order">
+                    <history-order-item
+                    v:v-for="item in items_list"
+                    v-bind:item_photo_url="item.item.zdjecia[0]"
+                    v-bind:item_name="item.item.nazwa"
+                    v-bind:item_price="item.cenaSprzedazy"
+                    v-bind:item_count="item.iloscPrzedmiotu"
+                    v-bind:item_isArchived="item.item.czyArchiwalny"
+                    ></history-order-item>
+                </ul>
                 <h3>Suma całkowita: {{wartosc_zamowienia}}</h4>
             </div>
         </li>
@@ -98,5 +113,7 @@
             cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym
             czasie zmiany ustawień dotyczących cookies.
         </p>
+        <script src="js/item_of_history_orders_component.js"></script>
+        <script type="text/javascript" src="js/history_of_orders.js"></script>
     </div>
 </body>

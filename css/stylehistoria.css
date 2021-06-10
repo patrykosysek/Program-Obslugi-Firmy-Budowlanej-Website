@@ -1,3 +1,37 @@
 .list_of_orders{
 	list-style: none;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	width: 1000px;
+	margin-left: 100px;
+}
+
+.item_photo{
+	width: 300px;
+	height: auto;
+}
+
+.list_of_items_order{
+	list-style: none;
+}
+
+.item_of_order{
+	margin-left: 50px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	width: 800px;
+}
+
+.order_item_details{
+	float: right;
+}
+
+.title{
+	margin-left: 20px;
+}
+
+.no_orders_text{
+	margin-left: 50px;
 }
