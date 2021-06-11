@@ -1,15 +1,24 @@
 .list_of_orders{
 	list-style: none;
+	width: 1000px;
+	margin-left: 100px;
+	margin-bottom: 100px;
+}
+
+.order_item{
 	border-style: solid;
 	border-width: 1px;
 	border-color: black;
-	width: 1000px;
-	margin-left: 100px;
+	margin-bottom: 25px;
+}
+
+.order_details{
+	margin-left: 10px;
 }
 
 .item_photo{
-	width: 300px;
-	height: auto;
+	width: auto;
+	height: 200px;
 }
 
 .list_of_items_order{
@@ -22,6 +31,7 @@
 	border-width: 1px;
 	border-color: black;
 	width: 800px;
+	height: 250px;
 }
 
 .order_item_details{

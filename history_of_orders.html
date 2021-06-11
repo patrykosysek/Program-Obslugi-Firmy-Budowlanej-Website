@@ -68,27 +68,20 @@
         </ul>
     </div>
     <h1 class="title">Historia zamówień</h1>
-    <h2 class="no_orders_text">Nie posiadasz jeszcze żadnych zamówień :(</h2>
-    <ul class="list_of_orders">
-        <li>
-            <div class="order_details">
-                <h2>Numer zamówienia: {{nr}}</h2>
-                <h6>Data zamówienia: {{data_zamowienia}}</h6>
-                <h4 class="done_string">Stan zamówienia: {{Zrealizowane}}</h4>
-                <h2>Lista przedmiotów zamówienia:</h2>
-                <ul class="list_of_items_order">
-                    <history-order-item
-                    v:v-for="item in items_list"
-                    v-bind:item_photo_url="item.item.zdjecia[0]"
-                    v-bind:item_name="item.item.nazwa"
-                    v-bind:item_price="item.cenaSprzedazy"
-                    v-bind:item_count="item.iloscPrzedmiotu"
-                    v-bind:item_isArchived="item.item.czyArchiwalny"
-                    ></history-order-item>
-                </ul>
-                <h3>Suma całkowita: {{wartosc_zamowienia}}</h4>
-            </div>
-        </li>
+		<div class="loader_indicator">
+		    <h4 class="center">Ładowanie historii zamówień...</h4>
+			<div class="loader center"></div>
+		</div>
+    <h2 v-if="!ifOrders" class="no_orders_text">Nie posiadasz jeszcze żadnych zamówień :(</h2>
+    <ul v-if="orders.length != 0" class="list_of_orders">
+        <history-order
+        v-for="order in orders"
+        v-bind:order_no="order.orderId"
+        v-bind:order_date="order.dataZamowienia"
+        v-bind:order_state="order.czyZrealizowane"
+        v-bind:order_sum="order.wartoscZamowienia"
+        v-bind:items_list="order.przedmiotyZamowienia"
+        ></history-order>
     </ul>
     <div class="footer">
         <div class="contact">
@@ -113,7 +106,8 @@
             cookies oznacza, że będą one zamieszczane w Państwa urządzeniu końcowym. Możecie Państwo dokonać w każdym
             czasie zmiany ustawień dotyczących cookies.
         </p>
-        <script src="js/item_of_history_orders_component.js"></script>
+        <script type="text/javascript" src="js/item_of_history_orders_component.js"></script>
+        <script type="text/javascript" src="js/history_order_component.js"></script>
         <script type="text/javascript" src="js/history_of_orders.js"></script>
     </div>
 </body>

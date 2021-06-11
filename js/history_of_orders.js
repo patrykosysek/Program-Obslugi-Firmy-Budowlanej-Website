@@ -13,11 +13,12 @@ Vue.use(VueToast, {
 app = new Vue({
 	el: '.list_of_orders',
 	data: {
-		history_of_orders : [],     // every order client ordered is stored here
-        clientID : 1,               // client's ID
-        items_list: []
+		items : [],
+		orders : [],    		// every order client ordered is stored here
+        clientID : 1,         	// client's ID
+        ifOrders : true
 	},
-    beforeCreate() {
+    created() {
         const getOrdersHistory = async () => {
 			try{
                 var userData = sessionStorage.getObj('userData');
@@ -27,17 +28,17 @@ app = new Vue({
 
 				const resp = await axios.get(queryURL);
                 if (resp.data != null){
-                    document.getElementsByClassName('no_orders_text')[0].remove();
-                    this.history_of_orders = resp.data; 
-                    this.items_list = resp.data.przedmiotyZamowienia;
+                    document.getElementsByClassName('loader_indicator')[0].remove();
+                    this.orders = resp.data;
+                }
+                else{
+                    this.ifOrders = false;
                 }
 			}
 			catch (err){
-				//window.location.href = 'error.html?error=503';
+				window.location.href = 'error.html?error=503';
 			}
 		};
 		getOrdersHistory();
     },
-	methods: {
-	}
 })

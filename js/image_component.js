@@ -22,6 +22,7 @@ Vue.component('item-detail', {
                 this.item_photos_urls = this.item_detail.zdjecia;
                 this.materials = this.item_detail.materialyElektroniczne;
                 this.actual_viewed_photo_url = this.item_photos_urls[this.photo_index];
+                this.isFetching = false;
 			}
 			catch (err){
 				window.location.href = 'error.html?error=503';
