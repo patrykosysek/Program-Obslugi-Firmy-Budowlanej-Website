@@ -26,23 +26,4 @@ app = new Vue({
 			window.location.href = 'error.html?error=503';
 		});
 	},
-	mounted() {
-		// remove and create new cart ONLY FOR DEBUG PURPOSES
-		localStorage.removeItem('cart');
-		var cart = [];
-		localStorage.setObj('cart', cart);
-	},
-})
-
-app2 = new Vue({
-	el : '.nav_bar',
-	data :{
-		user_name : 'Niezalogowany - Gość',
-		no_of_items : 0
-	},
-	mounted() {
-		// Get the user email to be displayed on the page
-		var userData = sessionStorage.getObj('userData');
-		this.user_name = userData.email;
-	},
 })

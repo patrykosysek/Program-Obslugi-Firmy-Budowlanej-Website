@@ -29,11 +29,10 @@
 
 		<div class="nav_bar_cart_and_user">
 			<div class="user">
-				<h4>Witaj gościu!</h4>
+				<h4>Zalogowany użytkownik: {{user_name}}</h4>
 			</div>
 			<div class="cart_all">
 				<a href="koszyk.html"><img src="img/cart.png" class="cart"> </a>
-				<p class="item_number">Ilość przedmiotów w koszyku: </p>
 			</div>
 			<a href="logowanie.html">
 				<button class="login_btn" type="button">
@@ -45,28 +44,28 @@
 	<div class="categories_bar">
 		<ul>
 			<li>
-				<a href="item_list.html?category=bud">Budowanie</a>
+				<a href="item_list.html?category=Budowanie">Budowanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=ogr">Ogród i wypoczynek</a>
+				<a href="item_list.html?category=Ogród">Ogród i wypoczynek</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=tec">Technika</a>
+				<a href="item_list.html?category=Technika">Technika</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=mie">Mieszkanie</a>
+				<a href="item_list.html?category=Mieszkanie">Mieszkanie</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=kuc">Kuchnia</a>
+				<a href="item_list.html?category=Kuchnia">Kuchnia</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=laz">Łazienka</a>
+				<a href="item_list.html?category=Lazienka">Lazienka</a>
 			</li>
 			<li>
-				<a href="item_list.html?category=ele">Elektronika</a>
+				<a href="item_list.html?category=Elektronika">Elektronika</a>
 			</li>
 		</ul>
-		</div>
+	</div>
 		<div class="main">
 			<item-detail>
 				
@@ -101,6 +100,8 @@
 			<script type="text/javascript" src="js/image_component.js"></script>
 			<script type="text/javascript" src="js/item_details.js"></script>
 			<script type="text/javascript" src="js/materials_component.js"></script>
+			<!-- Logging script -->
+			<script src="js/logging_script.js"></script>
 		</div>
 </body>
 

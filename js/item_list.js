@@ -18,7 +18,7 @@ app = new Vue({
 		const categoriesParam = urlParams.get('category');
 
 		this.categoryQueryString = categoriesParam;
-		var queryURL = 'https://mirbud-restapi.herokuapp.com/api/item/categories/active' + this.categoryQueryString;
+		var queryURL = 'https://mirbud-restapi.herokuapp.com/api/item/categories/active/' + this.categoryQueryString;
 
 		var data;
 		// get data from API
@@ -37,7 +37,7 @@ app = new Vue({
 				document.getElementsByClassName('loader_indicator')[0].remove();
 			}
 			catch (err){
-				window.location.href = 'error.html?error=503';
+				//window.location.href = 'error.html?error=503';
 			}
 		};
 		sendGetRequestItems();

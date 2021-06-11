@@ -16,7 +16,7 @@ app = new Vue({
 		items : [],
 		orders : [],    		// every order client ordered is stored here
         clientID : 1,         	// client's ID
-        ifOrders : true
+        is_orders : false
 	},
     created() {
         const getOrdersHistory = async () => {
