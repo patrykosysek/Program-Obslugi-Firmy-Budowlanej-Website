@@ -5,6 +5,10 @@
 	font-family: Verdana;
 }
 
+body{
+	margin: 0px;
+}
+
 .nav_bar{
 	overflow: auto;
 	background-color: orange;
@@ -20,8 +24,13 @@
 .cart{
 	width: 50px;
 	height: 50px;
-	float: left;
+	float: right;
 	margin-right: 20px;
+	background-color: blanchedalmond;
+	padding: 8px 8px 8px 8px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: darkgray;
 }
 
 .cart {
@@ -116,6 +125,7 @@
 
 .recommended_items{
 	overflow: auto;
+	margin-left: 20px;
 }
 
 .main_body .main_img{
@@ -192,6 +202,7 @@
 	  color: coral;
 	  text-decoration: none;
   }
+
 
   a:hover{
 	  color: orange;
