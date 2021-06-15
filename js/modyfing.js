@@ -519,7 +519,7 @@ new Vue({
       }
     },
     goBack() {
-      window.location.replace("testing.html");
+      window.location.replace("admin_item_list.html");
     },
   },
 });
