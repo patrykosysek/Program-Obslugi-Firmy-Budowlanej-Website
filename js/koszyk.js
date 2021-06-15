@@ -94,10 +94,19 @@ app = new Vue({
 			this.updateCartTotal();
 		},
 		quantityChanged : function(event){
-			var input = event.target;
-			if (isNaN(input.value) || input.value <= 0) {//chcemy 1 lub wiecej
-				input.value = 1;
+			var newValue = event.target.value;
+			var itemId = event.target.parentElement.parentElement.classList[1];
+
+			if (isNaN(newValue) || newValue <= 0) {//chcemy 1 lub wiecej
+				newValue = 1;
 			}
+
+			for(var i = 0; i < this.cart.length; i++){
+				if (this.cart[i].item_id == itemId){
+					this.cart[i].item_count = newValue;
+				}
+			}
+
 			this.updateCartTotal();
 		},
 		removeCartItem : function(event){
