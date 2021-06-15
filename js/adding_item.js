@@ -73,10 +73,19 @@ new Vue({
 
   methods: {
     addCategory() {
-      if (this.dostepne_kategorie.indexOf(this.dodaj_kategoria) == -1) {
+      var step;
+      var check = false;
+      for (step = 0; step < this.dostepne_kategorie.length; step++) {
+        if (
+          this.dostepne_kategorie[step].nazwaKategorii == this.dodaj_kategoria
+        )
+          check = true;
+      }
+
+      if (check == false) {
         this.$toast.open({
           message: "Podaj prawidłową kategorię!",
-          type: "success",
+          type: "error",
           duration: 5000,
           dismissible: true,
         });
@@ -84,6 +93,7 @@ new Vue({
       } else {
         this.przedmiot_kategorie.push(this.dodaj_kategoria);
         this.dodaj_kategoria = "";
+        check = false;
       }
     },
     deleteCategory() {
