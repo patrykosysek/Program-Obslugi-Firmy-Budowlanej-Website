@@ -1,47 +1,65 @@
 app = new Vue({
-  el: "#app",
+  el: ".admin-items",
   data: {
     items: [],
     search: "",
   },
-
+  created() {
+    axios.get('https://mirbud-restapi.herokuapp.com/api/item/name/empty')
+      .then(response => {
+        this.items = response.data;
+        this.login()
+      })
+      .catch(error => {
+        window.location.href = 'error.html?error=503';
+      });
+    //console.log(this.items);
+  },
   mounted() {
-  
-    /*
-    axios
-      .get("https://mirbud-restapi.herokuapp.com/api/item/name/ceg")
-      .then(
-        (response) => {
-          this.items = response.data;
-          console.log(this.items)
-        },
-        (error) => {
-          if (error.response.data.message != null) {
-            alert(error.response.data.message);
-          } else alert(error.response.data);
-        }
-      );
-      */
-      console.log(this.items);
   },
   methods: {
-    searchItems() {
+    login() {
+      setTimeout(() => {
+        var modifyAdminItemButtons = document.getElementsByClassName('btn-modify');
+        console.log(modifyAdminItemButtons.length)
+        for (var i = 0; i < modifyAdminItemButtons.length; i++) {
+          var button = modifyAdminItemButtons[i]
+          button.addEventListener('click', this.modifyAdminItem);
+        }
 
-        const sendGetRequest = async () => {
-			try{
-				const resp = await axios.get(`https://mirbud-restapi.herokuapp.com/api/item/name/ceg`);
-				this.items = resp.data; 
-                console.log(this.items);
-				
-			}
-			catch (err){
-				window.location.href = 'error.html?error=503';
-			}
-		};
-		sendGetRequest();
+        var searchButton = document.getElementsByClassName('btn-search');
+        console.log(searchButton.length)
+        var button = searchButton[0]
+        button.addEventListener('click', this.searchItem);
+      }, 0);
+
     },
-    check(){
-        console.log(this.items);
+
+    modifyAdminItem: function (event) {
+      var buttonClicked = event.target;
+      var classString = buttonClicked.parentElement.parentElement.className;
+      var classesSeparated = classString.split(' ');
+      var itemId = classesSeparated[1];
+      localStorage.setItem("item_id", itemId)
+      window.location.href = 'item_updating.html';
     },
+
+    searchItem: function (event) {
+      if (document.getElementById("searchInput").value != null) {
+        var itemName = document.getElementById('searchInput').value;
+        console.log(itemName)
+        if(itemName == null || itemName == ""){
+          itemName = "empty"
+        }
+        axios.get('https://mirbud-restapi.herokuapp.com/api/item/name/' + itemName)
+          .then(response => {
+            this.items = response.data;
+            this.login()
+          })
+          .catch(error => {
+            window.location.href = 'error.html?error=503';
+          });
+      }
+    }
   },
 });
