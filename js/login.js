@@ -1,3 +1,4 @@
+Vue.use(VueToast, {});
 
 new Vue({
     el: "#app",
@@ -132,7 +133,12 @@ new Vue({
                 .then(
                     (response) => {
                         if (response.status == 200) {
-                            alert("Udało się zalogować!");
+                            this.$toast.open({
+                              message: "Udało się zalogować!",
+                              type: "success",
+                              duration: 5000,
+                              dismissible: true,
+                            });
                         }
                         this.email.email = this.user.username
                         this.userData.email = this.user.username
@@ -142,7 +148,12 @@ new Vue({
                     },
                     (error) => {
                         if (error.response.status == 401) {
-                            alert("Niepoprawne dane");
+                            this.$toast.open({
+                              message: "Niepoprawne dane",
+                              type: "error",
+                              duration: 5000,
+                              dismissible: true,
+                            });
                         }
                         else {
                             console.log(error.status);
@@ -174,7 +185,7 @@ new Vue({
                         }
                         else if(data1.data == 2)
                         {
-                          window.location.href = 'index.html';
+                          window.location.href = 'manager_panel.html';
                         }
                         else if(data1.data == 1)
                         {
