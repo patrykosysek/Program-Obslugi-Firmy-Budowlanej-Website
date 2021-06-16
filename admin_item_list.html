@@ -23,21 +23,27 @@
   </head>
 
   <body>
-
     <section class="container content-section">
       <h2 class="section-header">Produkty</h2>
-      <input type="text" placeholder="Wpisz nazwę przedmiotu" id = "searchInput">
+      <input
+        type="text"
+        placeholder="Wpisz nazwę przedmiotu"
+        id="searchInput"
+      />
       <button class="btn btn-search" type="button">Szukaj</button>
       <div class="admin-row">
         <span class="admin-item admin-header admin-column">Produkt</span>
-        <span class="admin-archival admin-header admin-column">Czy Archiwalny</span>
+        <span class="admin-archival admin-header admin-column"
+          >Czy Archiwalny</span
+        >
         <span class="admin-price admin-header admin-column">Cena</span>
         <span class="admin-quantity admin-header admin-column">Ilość</span>
         <span class="admin-buttons admin-header admin-column">Opcje</span>
       </div>
       <ul class="admin-items">
         <admin-item
-          v-for="item in items" v-bind:key="item.id"
+          v-for="item in items"
+          v-bind:key="item.id"
           v-bind:item_photo_url="item.zdjecia"
           v-bind:item_name="item.nazwa"
           v-bind:is_archive="item.czyArchiwalny"
@@ -47,9 +53,6 @@
         ></admin-item>
       </ul>
     </section>
-
-
-      <button @click ="check">check</button>
 
     <script src="js/admin_item_component.js"></script>
     <script src="js/admin_item_list.js"></script>
