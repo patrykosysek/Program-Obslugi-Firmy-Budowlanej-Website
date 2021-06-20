@@ -107,22 +107,16 @@
         </span>
         <p></p>
         <label for="kategorie"><b>Kategorie</b></label>
-        <input
-          class="reg_log_input"
-          type="text"
-          name="dodaj_kategoria"
-          id="dodaj_kategoria"
-          v-model="dodaj_kategoria"
-          required
-        />
+        <select id="item_category_type">
+          <option v-for="cat in dostepne_kategorie" :value="cat.nazwaKategorii">{{cat.nazwaKategorii}}</option>
+        </select>
+
         <div style="display: flex; padding: 5px">
           <button @click="addCategory" class="registerbtnupdate">Dodaj</button>
           <button @click="deleteCategory" class="registerbtnupdate">
             Usuń
           </button>
-          <button @click="addNewCategory" class="registerbtnupdate">
-            Nowa
-          </button>
+          
         </div>
         <p></p>
         <div style="display: flex">

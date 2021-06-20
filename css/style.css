@@ -62,6 +62,14 @@ body{
 	border: solid 1px black;
 }
 
+.logout_btn{
+	float: right;
+  	background: #f1f1f1;
+  	padding: 5px 5px 5px 5px;
+  	margin-right: 35px;
+  	margin-top: 7px;
+	border: solid 1px black;
+}
 .search_bar{
 	margin-left: 20%;
 	margin-right: auto;

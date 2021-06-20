@@ -43,68 +43,22 @@
           name="filter_btn"
         />
       </ul>
-
+      
       <h1 style="margin-right: 20px"><pre class="tab">Generuj raport</pre></h1>
       <div style="display: flexbox">
         <label for="date_from"><b>Zakres daty od</b></label>
         <br />
-        <input
-          type="text"
-          id="date_from"
-          name="date_from"
-          placeholder="miesiąc"
-          style="width: 50px"
-          v-model="startMonth"
-          required
-        />
-        <input
-          type="text"
-          id="date_from"
-          name="date_from"
-          placeholder="dzień"
-          style="width: 40px"
-          v-model="startDay"
-          required
-        />
-        <input
-          type="text"
-          id="date_from"
-          name="date_from"
-          placeholder="rok"
-          style="width: 40px"
-          v-model="startYear"
-          required
-        />
+
+        <input type="date" name="date_from" id="date_from">
+        <span class="validity"></span>
         <br />
-        <label for="data_do"><b>Zakres daty do</b></label>
+
+        <label for="date_to"><b>Zakres daty do</b></label>
         <br />
-        <input
-          type="text"
-          id="date_from"
-          name="date_from"
-          placeholder="miesiąc"
-          style="width: 50px"
-          v-model="endMonth"
-          required
-        />
-        <input
-          type="text"
-          id="date_from"
-          name="date_from"
-          placeholder="dzień"
-          style="width: 40px"
-          v-model="endDay"
-          required
-        />
-        <input
-          type="text"
-          id="date_from"
-          name="date_from"
-          placeholder="rok"
-          style="width: 40px"
-          v-model="endYear"
-          required
-        />
+        <input type="date" name="date_to" id="date_to">
+
+       
+        
         <br />
       </div>
       <h2>Profit: {{this.profit}} zł</h2>
@@ -136,6 +90,7 @@
         </section>
       </div>
     </div>
+    
     <script src="js/logging_script.js"></script>
     <!-- Category Checkbox -->
     <script

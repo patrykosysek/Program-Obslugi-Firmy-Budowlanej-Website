@@ -20,6 +20,9 @@ new Vue({
       add_item() {
           document.getElementById('frame').src =("adding_item.html");
       },
+      logout(){
+          sessionStorage.clear();
+      }
     },
   });
   

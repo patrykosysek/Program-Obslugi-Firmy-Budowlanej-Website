@@ -1,5 +1,7 @@
 Vue.use(VueToast, {});
 
+
+
 app = new Vue({
   el: ".main_body",
   data: {
@@ -43,16 +45,21 @@ app = new Vue({
           this.dto.categories.push(checkboxes[i].value);
         }
       }
-
-      if (this.startDay.length == 1) this.startDay = "0" + this.startDay;
-      if (this.startMonth.length == 1) this.startMonth = "0" + this.startMonth;
-
-      if (this.endDay.length == 1) this.endtDay = "0" + this.endDay;
-      if (this.endMonth.length == 1) this.endMonth = "0" + this.endMonth;
+      
+      
+      this.startDay = document.getElementById("date_from").value.substring(8, 10)
+      this.startMonth = document.getElementById("date_from").value.substring(5, 7)
+      this.startYear = document.getElementById("date_from").value.substring(0, 4)
+      
+      this.endDay = document.getElementById("date_to").value.substring(8, 10)
+      this.endMonth = document.getElementById("date_to").value.substring(5, 7)
+      this.endYear = document.getElementById("date_to").value.substring(0, 4)
 
       this.dto.endDate = this.endMonth + "-" + this.endDay + "-" + this.endYear;
       this.dto.startDate =
-        this.startMonth + "-" + this.startDay + "-" + this.startYear;
+      this.startMonth + "-" + this.startDay + "-" + this.startYear;
+      console.log(this.dto.startDate)
+      console.log(this.dto.endDate)
       const sendGetRequestSelectedItems = async () => {
         try {
           const resp = await axios.post(

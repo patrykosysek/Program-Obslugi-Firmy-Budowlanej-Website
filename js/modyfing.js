@@ -113,13 +113,15 @@ new Vue({
         );
     },
     addCategory() {
+      var session = JSON.parse(sessionStorage.getItem('userData'));
+      console.log(session.role)
       axios
         .put(
           `https://mirbud-restapi.herokuapp.com/api/item/category/${JSON.parse(
             localStorage.getItem("item_id")
           )}`,
           {
-            categoryName: this.dodaj_kategoria,
+            categoryName: document.getElementById('item_category_type').value
           }
         )
         .then(
@@ -131,8 +133,7 @@ new Vue({
               dismissible: true,
             });
 
-            this.przedmiot_kategorie.push(this.dodaj_kategoria);
-            this.dodaj_kategoria = "";
+            this.przedmiot_kategorie.push(document.getElementById('item_category_type').value);
           },
           (error) => {
             if (error.response.data.message != null) {
@@ -157,7 +158,7 @@ new Vue({
         .delete(
           `https://mirbud-restapi.herokuapp.com/api/item/category/${JSON.parse(
             localStorage.getItem("item_id")
-          )}/${this.dodaj_kategoria}`
+          )}/${document.getElementById('item_category_type').value}`
         )
         .then(
           (response) => {
@@ -168,10 +169,9 @@ new Vue({
               dismissible: true,
             });
             const index = this.przedmiot_kategorie.indexOf(
-              this.dodaj_kategoria
+              document.getElementById('item_category_type').value
             );
             this.przedmiot_kategorie.splice(index, 1);
-            this.dodaj_kategoria = "";
           },
           (error) => {
             if (error.response.data.message != null) {
@@ -191,47 +191,7 @@ new Vue({
           }
         );
     },
-    addNewCategory() {
-      axios
-        .post("https://mirbud-restapi.herokuapp.com/api/categories/add", {
-          id: 0,
-          kategoriaPrzedmiotyId: [0],
-          nazwaKategorii: this.dodaj_kategoria,
-        })
-        .then(
-          (response) => {
-            this.$toast.open({
-              message: "Pomyślnie dodano nową kategorię",
-              type: "success",
-              duration: 5000,
-              dismissible: true,
-            });
-            this.dostepne_kategorie.push({
-              id: 0,
-              kategoriaPrzedmiotyId: [0],
-              nazwaKategorii: this.dodaj_kategoria,
-            });
 
-            this.dodaj_kategoria = "";
-          },
-          (error) => {
-            if (error.response.data.message != null) {
-              this.$toast.open({
-                message: error.response.data.message,
-                type: "error",
-                duration: 5000,
-                dismissible: true,
-              });
-            } else
-              this.$toast.open({
-                message: error.response.data,
-                type: "error",
-                duration: 5000,
-                dismissible: true,
-              });
-          }
-        );
-    },
     addImage() {
       axios
         .put(
