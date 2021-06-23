@@ -2,7 +2,7 @@ navbar = new Vue({
     el: '#navbar',
     data: {
         user_name: 'Niezalogowany - Gość',        
-        role: 3,
+        role: 4,
     },
     created(){
         var session = JSON.parse(sessionStorage.getItem('userData'));
@@ -54,7 +54,7 @@ navbar = new Vue({
             <button class="login_btn" type="button">
                 Zaloguj/Zarejestruj się
             </button>
-            <button @click="logout" class="logout_btn" type="button" v-if="role != 3">
+            <button @click="logout" class="logout_btn" type="button" v-if="role != 4">
                 Wyloguj się
             </button>
         </a>

@@ -75,13 +75,19 @@ new Vue({
     addCategory() {
       var step;
       var check = false;
+      
+      
       for (step = 0; step < this.dostepne_kategorie.length; step++) {
         if (
-          this.dostepne_kategorie[step].nazwaKategorii == this.dodaj_kategoria
+          this.dostepne_kategorie[step].nazwaKategorii == document.getElementById('item_category_type_update').value
         )
           check = true;
       }
-
+      for(step=0; step < this.przedmiot_kategorie.length; step++){
+        if(this.przedmiot_kategorie[step] == document.getElementById('item_category_type_update').value){
+          check = false;
+        }
+      }
       if (check == false) {
         this.$toast.open({
           message: "Podaj prawidłową kategorię!",
@@ -89,60 +95,37 @@ new Vue({
           duration: 5000,
           dismissible: true,
         });
-        this.dodaj_kategoria = "";
+        
       } else {
-        this.przedmiot_kategorie.push(this.dodaj_kategoria);
-        this.dodaj_kategoria = "";
+        this.przedmiot_kategorie.push(document.getElementById('item_category_type_update').value);
+        
         check = false;
       }
     },
     deleteCategory() {
-      const index = this.przedmiot_kategorie.indexOf(this.dodaj_kategoria);
 
-      this.przedmiot_kategorie.splice(index, 1);
-      this.dodaj_kategoria = "";
+      const index = this.przedmiot_kategorie.indexOf(document.getElementById('item_category_type_update').value);
+      var check = false;
+      var step;
+      for(step=0; step < this.przedmiot_kategorie.length; step++){
+        if(this.przedmiot_kategorie[step] == document.getElementById('item_category_type_update').value){
+          check = true;
+        }
+      }
+      if(check == false){
+        this.$toast.open({
+          message: "Podaj prawidłową kategorię!",
+          type: "error",
+          duration: 5000,
+          dismissible: true,
+        });
+      }
+      else{
+        this.przedmiot_kategorie.splice(index, 1);
+      }
+      
     },
-    addNewCategory() {
-      axios
-        .post("https://mirbud-restapi.herokuapp.com/api/categories/add", {
-          id: 0,
-          kategoriaPrzedmiotyId: [0],
-          nazwaKategorii: this.dodaj_kategoria,
-        })
-        .then(
-          (response) => {
-            this.$toast.open({
-              message: "Pomyślnie dodano nową kategorię",
-              type: "success",
-              duration: 5000,
-              dismissible: true,
-            });
-            this.dostepne_kategorie.push({
-              id: 0,
-              kategoriaPrzedmiotyId: [0],
-              nazwaKategorii: this.dodaj_kategoria,
-            });
-
-            this.dodaj_kategoria = "";
-          },
-          (error) => {
-            if (error.response.data.message != null) {
-              this.$toast.open({
-                message: error.response.data.message,
-                type: "error",
-                duration: 5000,
-                dismissible: true,
-              });
-            } else
-              this.$toast.open({
-                message: error.response.data,
-                type: "error",
-                duration: 5000,
-                dismissible: true,
-              });
-          }
-        );
-    },
+    
     addImage() {
       this.przedmiot_zdjecia.push(this.dodaj_zdjecie);
       this.dodaj_zdjecie = "";

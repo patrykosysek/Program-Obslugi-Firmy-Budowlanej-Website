@@ -113,8 +113,6 @@ new Vue({
         );
     },
     addCategory() {
-      var session = JSON.parse(sessionStorage.getItem('userData'));
-      console.log(session.role)
       axios
         .put(
           `https://mirbud-restapi.herokuapp.com/api/item/category/${JSON.parse(
