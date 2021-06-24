@@ -89,14 +89,6 @@
         </div>
 
         <p></p>
-        <label for="dost_kategorie"><b>Dostępne kategorie:</b></label>
-        <span
-          v-for="kategoria in dostepne_kategorie"
-          :key="kategoria.nazwaKategorii"
-        >
-          {{kategoria.nazwaKategorii}}
-        </span>
-        <p></p>
 
         <label for="kategorie_przed"><b>Kategorie przedmiotu:</b></label>
         <span
@@ -108,7 +100,9 @@
         <p></p>
         <label for="kategorie"><b>Kategorie</b></label>
         <select id="item_category_type">
-          <option v-for="cat in dostepne_kategorie" :value="cat.nazwaKategorii">{{cat.nazwaKategorii}}</option>
+          <option v-for="cat in dostepne_kategorie" :value="cat.nazwaKategorii">
+            {{cat.nazwaKategorii}}
+          </option>
         </select>
 
         <div style="display: flex; padding: 5px">
@@ -116,7 +110,6 @@
           <button @click="deleteCategory" class="registerbtnupdate">
             Usuń
           </button>
-          
         </div>
         <p></p>
         <div style="display: flex">
